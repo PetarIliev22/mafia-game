@@ -3,8 +3,8 @@
 @section('title', $isRegister ? 'Регистрация' : 'Вход')
 
 @section('content')
-    <div class="page-auth px-5 py-5">
-        <section class="section-auth">
+    <div class="page-auth px-4 px-sm-4 py-5">
+        <section class="section-auth w-100 my-auto">
             <form
                 method="POST"
                  action="{{ $isRegister

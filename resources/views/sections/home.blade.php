@@ -1,11 +1,11 @@
 <section class="section-home">
-    <div class="text-center mt-2">
+    <div class="section-home-hero text-center">
         <img
             src="{{ asset('img/game_logo.png') }}"
             alt="Mafia"
-            width="240"
-            height="240"
-            class="img-fluid object-fit-contain"
+            width="190"
+            height="190"
+            class="component-home-logo img-fluid object-fit-contain"
         >
 
         <p class="text-secondary text-uppercase small fw-semibold letter-spacing mb-0">
@@ -13,7 +13,7 @@
         </p>
     </div>
 
-    <div class="section-home-actions d-grid gap-3 mt-4">
+    <div class="section-home-actions d-grid gap-2 mt-3">
         <a
             href="#"
             class="component-new-game-button btn d-flex align-items-center justify-content-center gap-2 fw-semibold"
@@ -31,8 +31,8 @@
         </a>
     </div>
 
-    <div class="section-home-games mt-5">
-        <div class="d-flex align-items-center justify-content-between mb-3">
+    <div class="section-home-games mt-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
             <h2 class="h5 fw-bold mb-0">
                 Моите игри
             </h2>
@@ -50,9 +50,7 @@
             href="#"
             class="component-game-card d-flex align-items-center gap-3 p-3 text-decoration-none"
         >
-            <div
-                class="component-game-card-icon flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle"
-            >
+            <div class="component-game-card-icon flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle">
                 <i class="bi bi-people" aria-hidden="true"></i>
             </div>
 
