@@ -1,4 +1,3 @@
-<x-app-header />
 <section class="section-profile">
     <h1 class="h3 fw-bold mb-4">
         Профил

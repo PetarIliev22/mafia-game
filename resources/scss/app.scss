@@ -1,27 +1,24 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
-/* Bootstrap */
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+// Components
+@import "./components/app-header";
+@import "./components/navigation";
 
-/* Pages */
-@import './pages/home.scss';
-@import './pages/auth.scss';
+// Pages
+@import "./pages/home";
+@import "./pages/auth";
 
-/* Components */
-@import './components/app-header.scss';
-@import './components/navigation.scss';
-
-
+// Global
 html {
     min-height: 100%;
-    background: #0b0b0d;
+    background: #0a0a0f;
     color-scheme: dark;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
 
     color: #f5f5f7;
@@ -40,7 +37,6 @@ body {
 }
 
 .app {
-    width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: env(safe-area-inset-top);
 }

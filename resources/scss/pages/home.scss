@@ -3,123 +3,114 @@
         letter-spacing: 1.8px;
     }
 
-    // Action buttons
+    // Actions
     .section-home-actions {
         .btn {
             height: 62px;
+
             border-radius: 18px;
             font-size: 17px;
-
-            transition:
-                background-color 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
+            transition: 0.2s ease;
 
             &:active {
                 transform: scale(0.98);
             }
         }
-    }
 
-    .component-new-game-button {
-        color: #fff;
-        background: #861001;
-        border: 1px solid #861001;
-
-        &:hover {
+        .component-new-game-button {
             color: #fff;
-            background: #1d1d20;
-            border-color: #a61708;
+            background: #861001;
+            border-color: #861001;
+
+            &:hover {
+                color: #fff;
+                background: #1d1d20;
+                border-color: #a61708;
+            }
+        }
+
+        .component-join-game-button {
+            color: #f5f5f7;
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.35);
+
+            &:hover {
+                color: #fff;
+                background: #1d1d20;
+                border-color: rgba(255, 255, 255, 0.55);
+            }
         }
     }
 
-    .component-join-game-button {
-        color: #f5f5f7;
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-
-        &:hover {
-            color: #fff;
-            background: #1d1d20;
-            border-color: rgba(255, 255, 255, 0.55);
-        }
-    }
-
-    // Games section
+    // Games
     .section-home-games {
         h2 {
             color: #f5f5f7;
         }
-    }
 
-    .component-view-all-games-button {
-        color: #8e8e93;
+        .component-view-all-games-button {
+            color: #8e8e93;
+            transition: color 0.2s ease;
 
-        transition: color 0.2s ease;
+            i {
+                font-size: 12px;
+            }
 
-        i {
-            font-size: 12px;
+            &:hover {
+                color: #fff;
+            }
         }
 
-        &:hover {
+        .component-game-card {
+            min-height: 96px;
+
             color: #fff;
-        }
-    }
+            background: #17171a;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 
-    // Game card
-    .component-game-card {
-        min-height: 96px;
+            transition: 0.2s ease;
 
-        color: #fff;
-        background: #17171a;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            &:hover {
+                color: #fff;
+                background: #1d1d20;
+                border-color: rgba(134, 16, 1, 0.65);
+                box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px);
+            }
 
-        transition:
-            background-color 0.2s ease,
-            border-color 0.2s ease,
-            box-shadow 0.2s ease,
-            transform 0.2s ease;
-
-        &:hover {
-            color: #fff;
-            background: #1d1d20;
-            border-color: rgba(134, 16, 1, 0.65);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
+            &:active {
+                transform: scale(0.98);
+            }
         }
 
-        &:active {
-            transform: scale(0.98);
+        .component-game-card-icon {
+            width: 58px;
+            height: 58px;
+
+            color: #d0d0d4;
+            background: #202024;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            i {
+                font-size: 27px;
+                line-height: 1;
+            }
         }
-    }
 
-    .component-game-card-icon {
-        width: 58px;
-        height: 58px;
-
-        color: #d0d0d4;
-        background: #202024;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-
-        i {
-            font-size: 27px;
-            line-height: 1;
+        .component-game-card-title {
+            color: #f5f5f7;
+            font-size: 17px;
         }
-    }
 
-    .component-game-card-title {
-        color: #f5f5f7;
-        font-size: 17px;
-    }
+        .component-game-card-players {
+            color: #929298;
+        }
 
-    .component-game-card-players {
-        color: #929298;
-    }
-
-    .component-game-card-arrow {
-        color: #b8b8bd;
-        font-size: 18px;
+        .component-game-card-arrow {
+            color: #b8b8bd;
+            font-size: 18px;
+        }
     }
 }

@@ -1,6 +1,4 @@
 <section class="section-home">
-    <x-app-header />
-
     <div class="text-center mt-2">
         <img
             src="{{ asset('img/game_logo.png') }}"

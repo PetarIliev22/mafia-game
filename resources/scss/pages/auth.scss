@@ -25,6 +25,7 @@
     object-fit: contain;
 }
 
+// Avatar
 .component-auth-avatar {
     width: 110px;
     height: 110px;
@@ -34,33 +35,56 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
+.component-auth-avatar-button {
+    right: 0;
+    bottom: 4px;
+
+    width: 36px;
+    height: 36px;
+
+    color: #fff;
+    background: #a5121b;
+    border: 3px solid #090a0d;
+    cursor: pointer;
+
+    i {
+        font-size: 15px;
+    }
+
+    &:hover {
+        background: #c01823;
+    }
+}
+
+// Fields
 .component-auth-field {
-    min-height: 40px;
+    min-height: 52px;
 
     .input-group-text,
     .form-control,
     .btn {
+        min-height: 52px;
+
         color: #f7f7f8;
         background: #15161a;
         border-color: rgba(255, 255, 255, 0.14);
-        min-height: 52px;
     }
 
     .input-group-text {
         padding: 0 8px 0 16px;
-        font-size: 18px;
+
         border-right: 0;
         border-radius: 17px 0 0 17px;
+        font-size: 18px;
     }
 
     .form-control {
-        min-height: 52px;
         padding: 0 14px 0 8px;
-        font-size: 15px;
+
         border-left: 0;
         border-radius: 0 17px 17px 0;
         box-shadow: none;
-
+        font-size: 15px;
 
         &::placeholder {
             color: #85878e;
@@ -80,11 +104,9 @@
         }
     }
 
-    &:has(.btn) {
-        .form-control {
-            border-right: 0;
-            border-radius: 0;
-        }
+    &:has(.btn) .form-control {
+        border-right: 0;
+        border-radius: 0;
     }
 
     &:focus-within {
@@ -101,25 +123,18 @@
     }
 }
 
-.component-auth-submit,
-.component-social-button {
+// Submit
+.component-auth-submit {
     min-height: 58px;
+
+    color: #fff;
+    background: #a5121b;
+    border-color: #a5121b;
     border-radius: 17px;
 
     transition:
         background-color 0.2s ease,
-        border-color 0.2s ease,
         transform 0.2s ease;
-
-    &:active {
-        transform: scale(0.98);
-    }
-}
-
-.component-auth-submit {
-    color: #fff;
-    background: #a5121b;
-    border-color: #a5121b;
 
     &:hover,
     &:focus {
@@ -127,8 +142,13 @@
         background: #c01823;
         border-color: #c01823;
     }
+
+    &:active {
+        transform: scale(0.98);
+    }
 }
 
+// Social buttons
 .component-social-button {
     display: grid;
     grid-template-columns: 26px 1fr 26px;
@@ -146,10 +166,18 @@
     font-size: 16px;
     font-weight: 600;
 
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
     .component-social-icon {
         width: 26px;
+        height: 26px;
+
         font-size: 25px;
         line-height: 1;
+        object-fit: contain;
     }
 
     &:hover,
@@ -158,8 +186,13 @@
         background: #171717;
         border-color: #686868;
     }
+
+    &:active {
+        transform: scale(0.98);
+    }
 }
 
+// Divider
 .component-auth-divider {
     color: #777980;
 
@@ -169,29 +202,7 @@
     }
 }
 
-.component-auth-avatar-wrapper {
-    .component-auth-avatar-button {
-        right: 0;
-        bottom: 4px;
-
-        width: 36px;
-        height: 36px;
-
-        color: #fff;
-        background: #a5121b;
-        border: 3px solid #090a0d;
-        cursor: pointer;
-
-        i {
-            font-size: 15px;
-        }
-
-        &:hover {
-            background: #c01823;
-        }
-    }
-}
-
+// Checkbox
 .form-check-input {
     background-color: #15161a;
     border-color: rgba(255, 255, 255, 0.3);
@@ -206,6 +217,7 @@
     color: #b9bbc1;
 }
 
+// Validation
 .invalid-feedback {
     color: #ff6b72;
 }

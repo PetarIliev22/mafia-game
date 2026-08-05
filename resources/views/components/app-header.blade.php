@@ -3,10 +3,10 @@
     'profileUrl' => '#',
     'notificationsUrl' => '#',
     'settingsUrl' => '#',
-    'hasNotifications' => true,
+    'hasNotifications' => false,
 ])
 
-<section class="section-app-header d-flex align-items-center justify-content-between mb-5 px-2">
+<section class="section-app-header d-flex align-items-center justify-content-between mt-3 mb-4 px-4">
     <a
         href="{{ $profileUrl }}"
         class="component-profile-avatar d-flex align-items-center justify-content-center rounded-circle shadow-sm"
@@ -31,8 +31,4 @@
             <i class="bi bi-gear"></i>
         </a>
     </div>
-
-    <x-navigation
-        :active="'home'"
-    />
 </section>

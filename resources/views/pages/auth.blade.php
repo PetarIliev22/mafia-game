@@ -7,7 +7,7 @@
     $isRegister = request('mode') === 'register';
 @endphp
 
-<div class="page-auth px-3 py-4">
+<div class="page-auth px-4 py-5">
     <section class="section-auth">
 
         {{-- Header --}}
