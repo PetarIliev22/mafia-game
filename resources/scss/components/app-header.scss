@@ -1,0 +1,30 @@
+.section-app-header{
+    .component-profile-avatar {
+        width: 45px;
+        height: 45px;
+        background-color: #3030305e;
+
+        border: 1px solid #fdfdfd4d;
+        color: #fff;
+        text-decoration: none;
+
+        i {
+            font-size: 25px;
+            line-height: 1;
+        }
+    }
+
+    .component-icon-button {
+        background: transparent;
+
+        i {
+            font-size: 22px;
+            color: #ffffff;
+        }
+    }
+
+    .notification-indicator {
+        top: 11px;
+        right: 6px;
+    }
+}
