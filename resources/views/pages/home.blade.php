@@ -18,7 +18,11 @@
             $activeTab = 'home';
         }
     @endphp
-    <x-app-header/>
+
+    <x-app-header
+        :avatar="auth()->user()->avatar"
+        :profile-url="route('home', ['tab' => 'profile'])"
+    />
 
     <main class="page-home px-3 pt-3 pb-5">
         @include($tabs[$activeTab])

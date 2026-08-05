@@ -1,9 +1,22 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/auth', 'pages.auth')->name('auth');
-Route::view('/', 'pages.home')->name('home');
-Route::view('/games', 'pages.games')->name('games');
-Route::view('/chat', 'pages.chat')->name('chat');
-Route::view('/profile', 'pages.profile')->name('profile');
+Route::middleware('guest')->controller(AuthController::class)->group(function () {
+    Route::get('/auth', 'show')->name('auth');
+    Route::post('/login', 'login')->name('login');
+    Route::post('/register', 'register')->name('register');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return view('pages.home');
+    })->name('home');
+});
+
+Route::get('/', function () {
+    return redirect()->route(
+        auth()->check() ? 'home' : 'auth'
+    );
+});
