@@ -24,8 +24,44 @@
         :profile-url="route('home', ['tab' => 'profile'])"
     />
 
-    <main class="page-home px-4 pt-3 pb-5">
-        @include($tabs[$activeTab])
+    <main class="page-home px-4 pt-2">
+        <div class="tab-content">
+            <div
+                id="tab-home"
+                class="tab-pane fade show active"
+                role="tabpanel"
+                aria-labelledby="navigation-home"
+            >
+                @include('sections.home')
+            </div>
+
+            <div
+                id="tab-games"
+                class="tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="navigation-games"
+            >
+                @include('sections.games')
+            </div>
+
+            <div
+                id="tab-chat"
+                class="tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="navigation-chat"
+            >
+                @include('sections.chat')
+            </div>
+
+            <div
+                id="tab-profile"
+                class="tab-pane fade"
+                role="tabpanel"
+                aria-labelledby="navigation-profile"
+            >
+                @include('sections.profile')
+            </div>
+        </div>
     </main>
 
     <x-navigation :active="$activeTab" />

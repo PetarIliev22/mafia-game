@@ -1,3 +1,4 @@
+import 'bootstrap/js/dist/tab';
 import jQuery from 'jquery';
 
 jQuery(function ($) {

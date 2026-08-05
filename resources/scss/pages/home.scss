@@ -1,5 +1,4 @@
 .page-home {
-    padding-bottom: calc(110px + env(safe-area-inset-bottom)) !important;
     .letter-spacing {
         letter-spacing: 1.6px;
     }
@@ -38,79 +37,6 @@
                 background: #1d1d20;
                 border-color: rgba(255, 255, 255, 0.55);
             }
-        }
-    }
-
-    .section-home-games {
-        h2 {
-            color: #f5f5f7;
-            font-size: 18px;
-        }
-
-        .component-view-all-games-button {
-            color: #8e8e93;
-            font-size: 13px;
-            transition: color 0.2s ease;
-
-            i {
-                font-size: 11px;
-            }
-
-            &:hover {
-                color: #fff;
-            }
-        }
-
-        .component-game-card {
-            min-height: 86px;
-            padding: 14px;
-
-            color: #fff;
-            background: #17171a;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
-            transition: 0.2s ease;
-
-            &:hover {
-                color: #fff;
-                background: #1d1d20;
-                border-color: rgba(134, 16, 1, 0.65);
-                transform: translateY(-2px);
-            }
-
-            &:active {
-                transform: scale(0.98);
-            }
-        }
-
-        .component-game-card-icon {
-            width: 52px;
-            height: 52px;
-
-            color: #d0d0d4;
-            background: #202024;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-
-            i {
-                font-size: 24px;
-                line-height: 1;
-            }
-        }
-
-        .component-game-card-title {
-            color: #f5f5f7;
-            font-size: 16px;
-        }
-
-        .component-game-card-players {
-            color: #929298;
-            font-size: 13px;
-        }
-
-        .component-game-card-arrow {
-            color: #b8b8bd;
-            font-size: 16px;
         }
     }
 }

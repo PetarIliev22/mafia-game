@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function register(Request $request): RedirectResponse
     {
-        $data = $request->validate([
+        $data = $request->validateWithBag('register', [
             'name' => ['required', 'string', 'max:100'],
             'username' => [
                 'required',
@@ -67,7 +67,7 @@ class AuthController extends Controller
 
     public function login(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
+        $credentials = $request->validateWithBag('login', [
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
@@ -76,7 +76,7 @@ class AuthController extends Controller
             return back()
                 ->withErrors([
                     'email' => 'Имейлът или паролата са грешни.',
-                ])
+                ], 'login')
                 ->onlyInput('email');
         }
 

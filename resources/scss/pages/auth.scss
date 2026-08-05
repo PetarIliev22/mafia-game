@@ -35,7 +35,7 @@
     height: 100px;
 
     background: #16171b;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgb(169 0 0 / 88%);
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
@@ -59,7 +59,22 @@
         background: #c01823;
     }
 }
+.component-auth-switch {
+    .nav-link {
+        color: #fff;
+        background: transparent;
+        border: 0;
 
+        &.active {
+            display: none;
+        }
+
+        &:hover,
+        &:focus {
+            color: #d92731;
+        }
+    }
+}
 // Fields
 .component-auth-field {
     min-height: 48px;
