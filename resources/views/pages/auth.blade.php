@@ -7,7 +7,9 @@
         <section class="section-auth">
             <form
                 method="POST"
-                action="{{ $isRegister ? route('register') : route('login') }}"
+                 action="{{ $isRegister
+                    ? route('register.store')
+                    : route('login.store') }}"
                 enctype="multipart/form-data"
             >
                 @csrf
@@ -273,8 +275,8 @@
             <p class="text-center text-secondary mt-4 mb-0">
                 {{ $isRegister ? 'Вече имаш акаунт?' : 'Нямаш акаунт?' }}
 
-                <a
-                    href="{{ route('auth', [
+               <a
+                    href="{{ route('login', [
                         'mode' => $isRegister ? 'login' : 'register',
                     ]) }}"
                     class="fw-semibold"
