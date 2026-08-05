@@ -24,7 +24,7 @@
         :profile-url="route('home', ['tab' => 'profile'])"
     />
 
-    <main class="page-home px-3 pt-3 pb-5">
+    <main class="page-home px-4 pt-3 pb-5">
         @include($tabs[$activeTab])
     </main>
 
