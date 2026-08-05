@@ -1,35 +1,3 @@
-<div class="text-center mb-4">
-    <h1 class="h4 fw-bold mb-2">
-        Създай профил
-    </h1>
-
-    <p class="text-secondary mb-4">
-        Присъедини се към играта и стани част от мафията.
-    </p>
-
-    <div class="component-auth-avatar-wrapper position-relative d-inline-block">
-        <div
-            class="component-auth-avatar-placeholder component-auth-avatar rounded-circle d-flex align-items-center justify-content-center"
-        >
-            <i class="bi bi-person-fill" aria-hidden="true"></i>
-        </div>
-
-        <img
-            src=""
-            alt="Профилна снимка"
-            class="component-auth-avatar-preview component-auth-avatar rounded-circle object-fit-cover d-none"
-        >
-
-        <label
-            for="avatar"
-            class="component-auth-avatar-button position-absolute d-flex align-items-center justify-content-center rounded-circle"
-            aria-label="Качи профилна снимка"
-        >
-            <i class="bi bi-camera-fill" aria-hidden="true"></i>
-        </label>
-    </div>
-</div>
-
 <form
     method="POST"
     action="{{ route('register.store') }}"
