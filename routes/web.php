@@ -17,7 +17,7 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
-        return view('home');
+        return view('pages.home');
     })->name('home');
 });
 
