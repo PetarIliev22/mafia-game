@@ -3,11 +3,19 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('guest')->controller(AuthController::class)->group(function () {
-    Route::get('/auth', 'show')->name('auth');
-    Route::post('/login', 'login')->name('login');
-    Route::post('/register', 'register')->name('register');
-});
+Route::middleware('guest')
+    ->controller(AuthController::class)
+    ->group(function () {
+        Route::get('/auth', 'show')->name('auth');
+
+        Route::post('/login', 'login')
+            ->middleware('throttle:5,1')
+            ->name('login');
+
+        Route::post('/register', 'register')
+            ->middleware('throttle:3,1')
+            ->name('register');
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
