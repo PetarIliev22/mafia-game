@@ -9,13 +9,13 @@
 <header class="section-app-header d-flex align-items-center justify-content-between mt-3 mb-4 px-4">
     <a
         href="{{ $profileUrl }}"
-        class="component-profile-avatar d-flex align-items-center justify-content-center rounded-circle overflow-hidden shadow-sm"
+        class="component-profile-avatar d-flex align-items-center justify-content-center rounded-circle overflow-hidden"
         aria-label="Профил"
     >
         @if ($avatar)
             <img
-                src="{{ asset('storage/' . $avatar) }}"
-                alt="Профилна снимка"
+                src="{{ Storage::disk('public')->url($avatar) }}"
+                alt="Профил"
                 class="w-100 h-100 object-fit-cover"
             >
         @else
