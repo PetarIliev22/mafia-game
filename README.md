@@ -1,58 +1,231 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="public/img/game_logo.png" width="280" alt="Mafia game logo">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+  # MAFIA
 
-## About Laravel
+  **Доверието е лукс. Всеки има тайна.**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  Mobile-first social deduction game with a cinematic noir identity,
+  built with Laravel, Blade and Bootstrap.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  [![Laravel](https://img.shields.io/badge/Laravel-13-ff2d20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+  [![PHP](https://img.shields.io/badge/PHP-8.3%2B-777bb4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
+  [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952b3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+  [![Vite](https://img.shields.io/badge/Vite-8-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  [За играта](#-за-играта) •
+  [Функционалности](#-функционалности) •
+  [Рангове](#-рангове-и-прогрес) •
+  [Инсталация](#-локална-инсталация) •
+  [Roadmap](#-roadmap)
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🎭 За играта
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Mafia** е мобилна игра за социална дедукция, блъфиране и оцеляване. Играчите
+получават скрити роли, създават съюзи и се опитват да разкрият мафията, преди да е станало
+твърде късно.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Интерфейсът е проектиран първо за мобилни устройства и съчетава:
 
-## Agentic Development
+- кинематографичен Mafia noir стил;
+- iOS-ориентиран mobile-first UX;
+- тъмни glass компоненти и crimson акценти;
+- нива, XP, рангове, мисии и постижения.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## ✨ Функционалности
 
-```bash
-composer require laravel/boost --dev
+### Налични
 
-php artisan boost:install
+- регистрация с име, потребителско име, имейл и парола;
+- вход със защитена Laravel сесия;
+- качване и preview на профилна снимка;
+- rate limiting на login и register заявките;
+- защитена home страница с `auth` middleware;
+- бърза client-side навигация между Начало, Игри, Чат и Профил;
+- responsive Blade и SCSS компоненти;
+- PWA/iOS meta конфигурация и application icons.
+
+### В разработка
+
+- създаване и присъединяване към game lobby;
+- автоматично разпределяне на роли;
+- нощни и дневни фази;
+- гласуване и елиминации;
+- чат на живо и игрови известия;
+- XP, нива, рангове, дневни мисии и постижения.
+
+## 🏆 Рангове и прогрес
+
+XP системата изчислява нивото на играча и отключва шес визуални ранга.
+
+| Нива | Ранг | Rank badge | Level shield | Цвят |
+|:---:|---|:---:|:---:|:---:|
+| 0–4 | **Новобранец** | <img src="public/img/icons/levels/rookie.png" width="72" alt="Rookie badge"> | <img src="public/img/icons/level-shields/rookie-shield.png" width="72" alt="Rookie shield"> | `#8e8e93` |
+| 5–9 | **Съучастник** | <img src="public/img/icons/levels/associate.png" width="72" alt="Associate badge"> | <img src="public/img/icons/level-shields/associate-shield.png" width="72" alt="Associate shield"> | `#4f8edc` |
+| 10–19 | **Гангстер** | <img src="public/img/icons/levels/gangster.png" width="72" alt="Gangster badge"> | <img src="public/img/icons/level-shields/gangster-shield.png" width="72" alt="Gangster shield"> | `#dc6b2f` |
+| 20–29 | **Капо** | <img src="public/img/icons/levels/capo.png" width="72" alt="Capo badge"> | <img src="public/img/icons/level-shields/capo-shield.png" width="72" alt="Capo shield"> | `#d92731` |
+| 30–49 | **Подземен бос** | <img src="public/img/icons/levels/underboss.png" width="72" alt="Underboss badge"> | <img src="public/img/icons/level-shields/underboss-shield.png" width="72" alt="Underboss shield"> | `#d4af37` |
+| 50+ | **Дон** | <img src="public/img/icons/levels/don.png" width="72" alt="Don badge"> | <img src="public/img/icons/level-shields/don-shield.png" width="72" alt="Don shield"> | `#9b59ff` |
+
+> Базата данни пази общото XP. Нивото, прогресът и рангът се определят от игровата логика.
+
+## 🎨 Визуална идентичност
+
+<table>
+  <tr>
+    <th align="center">Game logo</th>
+    <th align="center">Authentication logo</th>
+    <th align="center">App icon</th>
+    <th align="center">Favicon</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="public/img/game_logo.png" width="180" alt="Mafia game logo"></td>
+    <td align="center"><img src="public/img/auth.png" width="180" alt="Mafia authentication logo"></td>
+    <td align="center"><img src="public/img/apple-touch-icon.png" width="96" alt="Mafia Apple touch icon"></td>
+    <td align="center"><img src="public/img/favicon-32x32.png" width="32" alt="Mafia favicon"></td>
+  </tr>
+</table>
+
+### UI icons
+
+| Asset | Path | Purpose |
+|---|---|---|
+| Google | `public/img/google-icon.svg` | Google sign-in button |
+| Apple | `public/img/apple-icon.svg` | Apple sign-in button |
+| Rank badges | `public/img/icons/levels/` | Визуален ранг на играча |
+| Level shields | `public/img/icons/level-shields/` | Рамка за динамичния номер на нивото |
+| Bootstrap Icons | `bootstrap-icons` | Навигация и интерфейсни действия |
+
+## 🧩 Технологии
+
+| Layer | Technology |
+|---|---|
+| Backend | PHP 8.3+, Laravel 13 |
+| Authentication | Laravel Auth, sessions, CSRF protection |
+| Database | SQLite, MySQL or PostgreSQL through Eloquent ORM |
+| Templates | Blade components and sections |
+| UI | Bootstrap 5.3, Bootstrap Icons, custom SCSS |
+| Frontend logic | JavaScript, jQuery |
+| Assets | Vite 8, Sass |
+| Tests | PHPUnit 12 |
+
+## 🗂️ Структура
+
+```text
+app/
+├── Http/Controllers/     # HTTP actions and authentication
+├── Models/               # Eloquent models
+└── Support/              # Game progression rules
+
+resources/
+├── js/                   # Client-side behaviour
+├── scss/
+│   ├── components/       # Header and bottom navigation
+│   └── pages/            # Home and authentication styles
+└── views/
+    ├── components/       # Reusable Blade components
+    ├── layouts/          # Base application layout
+    ├── pages/            # Page shells
+    └── sections/         # Home, games, chat and profile tabs
+
+public/img/
+├── icons/                # Rank badges and level shields
+├── auth.png              # Authentication logo
+└── game_logo.png         # Main game logo
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## 🚀 Локална инсталация
 
-## Contributing
+### Изисквания
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP 8.3+
+- Composer
+- Node.js и npm
+- SQLite, MySQL или PostgreSQL
 
-## Code of Conduct
+### Стъпки
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone https://github.com/PetarIliev22/mafia-game.git
+cd mafia-game
 
-## Security Vulnerabilities
+composer install
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Конфигурирай базата данни в `.env`, след което изпълни:
 
-## License
+```bash
+php artisan migrate
+php artisan storage:link
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+npm install
+npm run build
+```
+
+За локална разработка:
+
+```bash
+composer run dev
+```
+
+Проектът ще бъде достъпен на адреса, показан от Laravel development server.
+
+## 🧪 Тестове
+
+```bash
+composer test
+```
+
+Проверка на кодовия стил:
+
+```bash
+./vendor/bin/pint --test
+```
+
+Автоматично форматиране:
+
+```bash
+./vendor/bin/pint
+```
+
+## 🗺️ Roadmap
+
+- [x] Mobile-first Mafia interface
+- [x] Login and registration
+- [x] Profile avatar upload and preview
+- [x] Protected authenticated area
+- [x] Fast tab navigation
+- [ ] Player XP and rank progression
+- [ ] Game creation and join codes
+- [ ] Lobby and ready state
+- [ ] Automatic role assignment
+- [ ] Day/night game engine
+- [ ] Voting and elimination system
+- [ ] Real-time chat and notifications
+- [ ] Achievements, missions and leaderboards
+- [ ] Social authentication with Google and Apple
+- [ ] Automated feature tests and CI
+
+## 🤝 Contributing
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/feature-name`.
+3. Commit the changes using a clear message.
+4. Push the branch and open a pull request.
+
+## 📜 License
+
+The project currently uses the MIT license declared in `composer.json`.
+
+---
+
+<div align="center">
+  <img src="public/img/favicon-32x32.png" width="32" alt="Mafia icon">
+
+  **MAFIA — Доверието е лукс.**
+</div>
