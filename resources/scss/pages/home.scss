@@ -17,26 +17,168 @@
 
         .component-new-game-button {
             color: #fff;
-            background: #861001;
-            border-color: #861001;
 
-            &:hover {
+            background: linear-gradient(
+                180deg,
+                #c61724 0%,
+                #a70d19 50%,
+                #820810 100%
+            );
+
+            border: 1px solid #eb303c;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.24),
+                inset 0 -2px 0 rgba(65, 0, 6, 0.45),
+                0 8px 22px rgba(174, 11, 24, 0.32);
+
+            &:hover,
+            &:focus-visible {
                 color: #fff;
-                background: #1d1d20;
-                border-color: #a61708;
+
+                background: linear-gradient(
+                    180deg,
+                    #db202d 0%,
+                    #b8111e 50%,
+                    #930a14 100%
+                );
+
+                border-color: #ff4652;
+
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+                    inset 0 -2px 0 rgba(65, 0, 6, 0.45),
+                    0 10px 28px rgba(217, 25, 39, 0.42);
+
+                transform: translateY(-1px);
             }
         }
 
-        .component-join-game-button {
+       .component-join-game-button {
             color: #f5f5f7;
-            background: transparent;
-            border-color: rgba(255, 255, 255, 0.35);
 
-            &:hover {
+            background: linear-gradient(
+                180deg,
+                rgba(31, 32, 37, 0.94),
+                rgba(12, 13, 16, 0.97)
+            );
+
+            border: 1px solid rgba(255, 255, 255, 0.26);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.09),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+                0 7px 18px rgba(0, 0, 0, 0.28);
+
+            &:hover,
+            &:focus-visible {
                 color: #fff;
-                background: #1d1d20;
-                border-color: rgba(255, 255, 255, 0.55);
+
+                background: linear-gradient(
+                    180deg,
+                    rgba(42, 43, 49, 0.98),
+                    rgba(17, 18, 22, 0.98)
+                );
+
+                border-color: rgba(255, 255, 255, 0.42);
+
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+                    0 9px 24px rgba(0, 0, 0, 0.38);
+
+                transform: translateY(-1px);
             }
+        }
+
+        // Level up
+        .component-player-level {
+            position: relative;
+            overflow: hidden;
+
+            color: #f5f5f7;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(29, 30, 35, 0.96),
+                    rgba(11, 11, 14, 0.98)
+                );
+            border: 1px solid rgba(200, 47, 64, 0.35);
+            border-radius: 18px;
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 18px;
+                right: 18px;
+                height: 1px;
+
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    #c82f40,
+                    transparent
+                );
+            }
+
+            h2 {
+                color: #fff;
+            }
+
+            p {
+                color: #96969d;
+            }
+        }
+
+        .component-player-level-badge {
+            width: 58px;
+            height: 66px;
+
+            color: #fff;
+            background:
+                linear-gradient(145deg, #c82f40, #51080f);
+            border: 2px solid #e34b59;
+            border-radius: 16px 16px 22px 22px;
+            box-shadow:
+                0 8px 18px rgba(200, 47, 64, 0.25),
+                inset 0 0 12px rgba(0, 0, 0, 0.45);
+
+            span {
+                font-size: 24px;
+                font-weight: 800;
+            }
+        }
+
+        .component-player-rank-icon {
+            color: #c9a35f;
+            font-size: 28px;
+            line-height: 1;
+            filter: drop-shadow(0 0 8px rgba(201, 163, 95, 0.25));
+        }
+
+        .component-player-level-progress {
+            height: 7px;
+
+            background: #08090b;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+
+            .progress-bar {
+                background: linear-gradient(90deg, #861001, #e12b3a);
+                border-radius: inherit;
+                box-shadow: 0 0 10px rgba(225, 43, 58, 0.45);
+            }
+        }
+
+        .component-player-level-xp {
+            color: #d2d2d6;
+        }
+
+        .component-player-level-remaining {
+            color: #777980;
         }
     }
 }
