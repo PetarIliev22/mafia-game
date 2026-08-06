@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/img/game_logo.png" width="280" alt="Mafia game logo">
+  <img src="public/img/game_logo.webp" width="280" alt="Mafia game logo">
 
   # MAFIA
 
@@ -63,12 +63,12 @@ XP системата изчислява нивото на играча и от�
 
 | Нива | Ранг | Rank badge | Level shield | Цвят |
 |:---:|---|:---:|:---:|:---:|
-| 0–4 | **Новобранец** | <img src="public/img/icons/levels/rookie.png" width="72" alt="Rookie badge"> | <img src="public/img/icons/level-shields/rookie-shield.png" width="72" alt="Rookie shield"> | `#8e8e93` |
-| 5–9 | **Съучастник** | <img src="public/img/icons/levels/associate.png" width="72" alt="Associate badge"> | <img src="public/img/icons/level-shields/associate-shield.png" width="72" alt="Associate shield"> | `#4f8edc` |
-| 10–19 | **Гангстер** | <img src="public/img/icons/levels/gangster.png" width="72" alt="Gangster badge"> | <img src="public/img/icons/level-shields/gangster-shield.png" width="72" alt="Gangster shield"> | `#dc6b2f` |
-| 20–29 | **Капо** | <img src="public/img/icons/levels/capo.png" width="72" alt="Capo badge"> | <img src="public/img/icons/level-shields/capo-shield.png" width="72" alt="Capo shield"> | `#d92731` |
-| 30–49 | **Подземен бос** | <img src="public/img/icons/levels/underboss.png" width="72" alt="Underboss badge"> | <img src="public/img/icons/level-shields/underboss-shield.png" width="72" alt="Underboss shield"> | `#d4af37` |
-| 50+ | **Дон** | <img src="public/img/icons/levels/don.png" width="72" alt="Don badge"> | <img src="public/img/icons/level-shields/don-shield.png" width="72" alt="Don shield"> | `#9b59ff` |
+| 0–4 | **Новобранец** | <img src="public/img/icons/levels/rookie.webp" width="72" alt="Rookie badge"> | <img src="public/img/icons/level-shields/rookie-shield.png" width="72" alt="Rookie shield"> | `#8e8e93` |
+| 5–9 | **Съучастник** | <img src="public/img/icons/levels/associate.webp" width="72" alt="Associate badge"> | <img src="public/img/icons/level-shields/associate-shield.png" width="72" alt="Associate shield"> | `#4f8edc` |
+| 10–19 | **Гангстер** | <img src="public/img/icons/levels/gangster.webp" width="72" alt="Gangster badge"> | <img src="public/img/icons/level-shields/gangster-shield.png" width="72" alt="Gangster shield"> | `#dc6b2f` |
+| 20–29 | **Капо** | <img src="public/img/icons/levels/capo.webp" width="72" alt="Capo badge"> | <img src="public/img/icons/level-shields/capo-shield.png" width="72" alt="Capo shield"> | `#d92731` |
+| 30–49 | **Подземен бос** | <img src="public/img/icons/levels/underboss.webp" width="72" alt="Underboss badge"> | <img src="public/img/icons/level-shields/underboss-shield.png" width="72" alt="Underboss shield"> | `#d4af37` |
+| 50+ | **Дон** | <img src="public/img/icons/levels/don.webp" width="72" alt="Don badge"> | <img src="public/img/icons/level-shields/don-shield.png" width="72" alt="Don shield"> | `#9b59ff` |
 
 > Базата данни пази общото XP. Нивото, прогресът и рангът се определят от игровата логика.
 
@@ -82,7 +82,7 @@ XP системата изчислява нивото на играча и от�
     <th align="center">Favicon</th>
   </tr>
   <tr>
-    <td align="center"><img src="public/img/game_logo.png" width="180" alt="Mafia game logo"></td>
+    <td align="center"><img src="public/img/game_logo.webp" width="180" alt="Mafia game logo"></td>
     <td align="center"><img src="public/img/auth.png" width="180" alt="Mafia authentication logo"></td>
     <td align="center"><img src="public/img/apple-touch-icon.png" width="96" alt="Mafia Apple touch icon"></td>
     <td align="center"><img src="public/img/favicon-32x32.png" width="32" alt="Mafia favicon"></td>
