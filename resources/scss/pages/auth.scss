@@ -1,16 +1,20 @@
 .page-auth {
     display: flex;
     flex-direction: column;
-
     width: 100%;
     max-width: 430px;
     min-height: 100dvh;
     margin: 0 auto;
     padding-top: max(24px, env(safe-area-inset-top));
     padding-bottom: max(24px, env(safe-area-inset-bottom));
-
     color: #f7f7f8;
-    background: #090a0d;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(9, 10, 13, 0.603),
+            rgba(9, 10, 13, 0.7)
+        ),
+        url("/public/img/auth-bg.webp") center top / cover no-repeat;
 
     .section-auth {
         width: 100%;
@@ -47,14 +51,10 @@
     .invalid-feedback {
         color: #ff6b72;
     }
-
-    .form-control.is-invalid {
-        border-color: #ff4d57;
-    }
 }
 
 .component-auth-logo {
-    width: 150px;
+    width: 180px;
     object-fit: contain;
 }
 
@@ -114,71 +114,168 @@
 }
 
 .component-auth-field {
+    min-height: 50px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(35, 36, 41, 0.96),
+            rgba(17, 18, 22, 0.98)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+        0 8px 22px rgba(0, 0, 0, 0.28);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
     .input-group-text,
     .form-control {
-        min-height: 48px;
+        min-height: 50px;
 
         color: #f7f7f8;
-        background: #15161a;
-        border-color: rgba(255, 255, 255, 0.14);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .input-group-text {
-        padding: 0 7px 0 14px;
+        display: flex;
+        flex: 0 0 52px;
+        align-items: center;
+        justify-content: center;
 
-        border-right: 0;
-        border-radius: 15px 0 0 15px;
-        font-size: 17px;
+        width: 52px;
+        padding: 0;
+
+        color: #d5d6da;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 18px;
+
+        transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
     }
 
     .form-control {
-        padding: 0 12px 0 7px;
+        padding: 0 16px;
 
-        border-left: 0;
-        border-radius: 0 15px 15px 0;
-        box-shadow: none;
         font-size: 16px;
 
         &::placeholder {
             color: #85878e;
             opacity: 1;
         }
+
+        &:focus {
+            color: #fff;
+            background: transparent;
+            box-shadow: none;
+        }
     }
 
     &:focus-within {
-        .input-group-text,
-        .form-control {
-            background: #191a1f;
-            border-color: rgba(217, 39, 49, 0.7);
-        }
+        border-color: rgba(217, 39, 49, 0.85);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 0 3px rgba(217, 39, 49, 0.12),
+            0 10px 28px rgba(140, 10, 20, 0.3);
+
+        transform: translateY(-1px);
 
         .input-group-text {
-            color: #d92731;
+            color: #ff3b47;
+            background: rgba(217, 39, 49, 0.08);
         }
+    }
+
+    &:has(.is-invalid) {
+        border-color: #ff4d57;
+
+        box-shadow:
+            0 0 0 3px rgba(255, 77, 87, 0.1),
+            0 8px 22px rgba(0, 0, 0, 0.28);
     }
 }
 
 .component-auth-submit {
+    position: relative;
+    overflow: hidden;
+
     min-height: 52px;
 
     color: #fff;
-    background: #a5121b;
-    border-color: #a5121b;
+    background:
+        linear-gradient(
+            180deg,
+            #d11926 0%,
+            #b50f1c 48%,
+            #8f0913 100%
+        );
+
+    border: 1px solid #ef3340;
     border-radius: 15px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -2px 0 rgba(72, 0, 7, 0.45),
+        0 8px 22px rgba(174, 11, 24, 0.3);
+
+    font-weight: 700;
+    letter-spacing: 0.2px;
 
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
+        box-shadow 0.2s ease,
         transform 0.2s ease;
 
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 12%;
+        left: 12%;
+
+        height: 1px;
+
+        background: rgba(255, 255, 255, 0.5);
+        filter: blur(0.5px);
+    }
+
     &:hover,
-    &:focus {
+    &:focus-visible {
         color: #fff;
-        background: #c01823;
-        border-color: #c01823;
+        border-color: #ff4652;
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -2px 0 rgba(72, 0, 7, 0.45),
+            0 10px 28px rgba(217, 25, 39, 0.42);
+
+        transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+        outline: 3px solid rgba(255, 59, 71, 0.2);
+        outline-offset: 2px;
     }
 
     &:active {
+        box-shadow:
+            inset 0 2px 5px rgba(60, 0, 6, 0.45),
+            0 4px 12px rgba(174, 11, 24, 0.25);
+
         transform: scale(0.98);
     }
 }
@@ -193,16 +290,26 @@
     padding: 0 18px;
 
     color: #fff;
-    background: #050505;
-    border: 1px solid #4b4b4b;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 27, 31, 0.96),
+        rgba(7, 8, 10, 0.98)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 999px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 7px 18px rgba(0, 0, 0, 0.28);
 
     font-size: 14px;
     font-weight: 600;
 
     transition:
-        background-color 0.2s ease,
+        background 0.2s ease,
         border-color 0.2s ease,
+        box-shadow 0.2s ease,
         transform 0.2s ease;
 
     .component-social-icon {
@@ -217,11 +324,26 @@
     &:hover,
     &:focus {
         color: #fff;
-        background: #171717;
-        border-color: #686868;
+        background: linear-gradient(
+            180deg,
+            rgba(38, 39, 44, 0.98),
+            rgba(13, 14, 17, 0.98)
+        );
+
+        border-color: rgba(255, 255, 255, 0.4);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            0 9px 22px rgba(0, 0, 0, 0.38);
+
+        transform: translateY(-1px);
     }
 
     &:active {
+        box-shadow:
+            inset 0 2px 5px rgba(0, 0, 0, 0.5),
+            0 4px 12px rgba(0, 0, 0, 0.25);
+
         transform: scale(0.98);
     }
 }
