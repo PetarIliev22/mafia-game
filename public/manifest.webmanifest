@@ -1,0 +1,20 @@
+{
+    "id": "/",
+    "name": "Mafia",
+    "short_name": "Mafia",
+    "description": "Доверието е лукс",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#090a0d",
+    "theme_color": "#090a0d",
+    "icons": [
+        {
+            "src": "/img/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

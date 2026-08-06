@@ -15,27 +15,12 @@
     {{-- iOS --}}
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta
-        name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent"
-    >
-    <meta
-        name="apple-mobile-web-app-title"
-        content="{{ config('app.name', 'Mafia') }}"
-    >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="{{ config('app.name', 'Mafia') }}">
 
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="{{ asset('img/apple-touch-icon.png') }}"
-    >
+    <link rel="manifest" href="{{ asset('manifest.webmanifest') }}">
 
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="{{ asset('img/favicon-32x32.png') }}"
-    >
+    <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
 
     <title>@yield('title', config('app.name', 'Mafia'))</title>
 
