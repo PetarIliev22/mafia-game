@@ -54,7 +54,12 @@
                             <div class="small text-secondary">
                                 {{ $user->rank['name'] }}
                             </div>
+
+                            <div class="mt-2">
+                                {{ $user->xp }} XP
+                            </div>
                         </div>
+
 
                         <img
                             src="{{ asset($user->rank['icon']) }}"
