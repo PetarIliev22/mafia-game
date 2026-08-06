@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Support\PlayerProgress;
 
 class User extends Authenticatable
 {
@@ -39,37 +40,28 @@ class User extends Authenticatable
         ];
     }
 
-    public const XP_PER_LEVEL = 1000;
-
     public function getLevelAttribute(): int
     {
-        return intdiv((int) $this->xp, self::XP_PER_LEVEL);
+        return PlayerProgress::level((int) $this->xp);
     }
 
     public function getCurrentLevelXpAttribute(): int
     {
-        return (int) $this->xp % self::XP_PER_LEVEL;
+        return PlayerProgress::currentXp((int) $this->xp);
     }
 
     public function getRemainingLevelXpAttribute(): int
     {
-        return self::XP_PER_LEVEL - $this->current_level_xp;
+        return PlayerProgress::remainingXp((int) $this->xp);
     }
 
     public function getLevelProgressAttribute(): float
     {
-        return ($this->current_level_xp / self::XP_PER_LEVEL) * 100;
+        return PlayerProgress::progress((int) $this->xp);
     }
 
-    public function getRankAttribute(): string
+    public function getRankAttribute(): array
     {
-        return match (true) {
-            $this->level >= 50 => 'Дон',
-            $this->level >= 30 => 'Подземен бос',
-            $this->level >= 20 => 'Капо',
-            $this->level >= 10 => 'Гангстер',
-            $this->level >= 5  => 'Съучастник',
-            default            => 'Новобранец',
-        };
+        return PlayerProgress::rank($this->level);
     }
 }

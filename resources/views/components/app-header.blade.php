@@ -6,7 +6,7 @@
     'hasNotifications' => false,
 ])
 
-<header class="section-app-header d-flex align-items-center justify-content-between mt-1 px-4">
+<header class="section-app-header d-flex align-items-center justify-content-between mt-2 px-4">
     <a
         href="{{ $profileUrl }}"
         class="component-profile-avatar d-flex align-items-center justify-content-center rounded-circle overflow-hidden"

@@ -91,94 +91,111 @@
         }
 
         // Level up
-        .component-player-level {
-            position: relative;
-            overflow: hidden;
+        .section-player-level {
+            --rank-color: #8e8e93;
 
-            color: #f5f5f7;
-            background:
-                linear-gradient(
+            .component-player-level {
+                position: relative;
+                overflow: hidden;
+
+                color: #f5f5f7;
+                background: linear-gradient(
                     135deg,
                     rgba(29, 30, 35, 0.96),
                     rgba(11, 11, 14, 0.98)
                 );
-            border: 1px solid rgba(200, 47, 64, 0.35);
-            border-radius: 18px;
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.35),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 18px;
-                right: 18px;
-                height: 1px;
-
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    #c82f40,
+                border: 1px solid color-mix(
+                    in srgb,
+                    var(--rank-color) 45%,
                     transparent
+                );
+                border-radius: 18px;
+                box-shadow:
+                    0 12px 30px rgba(0, 0, 0, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 18px;
+                    left: 18px;
+
+                    height: 1px;
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        var(--rank-color),
+                        transparent
+                    );
+                }
+            }
+
+            .component-player-level-badge {
+                width: 58px;
+                height: 66px;
+
+                color: #fff;
+                background: linear-gradient(
+                    145deg,
+                    var(--rank-color),
+                    color-mix(in srgb, var(--rank-color) 30%, #090a0d)
+                );
+                border: 2px solid var(--rank-color);
+                border-radius: 16px 16px 22px 22px;
+                box-shadow:
+                    0 8px 18px color-mix(
+                        in srgb,
+                        var(--rank-color) 25%,
+                        transparent
+                    ),
+                    inset 0 0 12px rgba(0, 0, 0, 0.45);
+
+                span {
+                    font-size: 24px;
+                    font-weight: 800;
+                }
+            }
+
+            .component-player-rank-icon {
+                color: var(--rank-color);
+                font-size: 28px;
+                line-height: 1;
+                filter: drop-shadow(
+                    0 0 8px
+                    color-mix(in srgb, var(--rank-color) 40%, transparent)
                 );
             }
 
-            h2 {
-                color: #fff;
+            .component-player-level-progress {
+                height: 7px;
+
+                background: #08090b;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 999px;
+
+                .progress-bar {
+                    background: linear-gradient(
+                        90deg,
+                        color-mix(in srgb, var(--rank-color) 60%, #090a0d),
+                        var(--rank-color)
+                    );
+                    border-radius: inherit;
+                    box-shadow: 0 0 10px color-mix(
+                        in srgb,
+                        var(--rank-color) 45%,
+                        transparent
+                    );
+                }
             }
 
-            p {
-                color: #96969d;
+            .component-player-level-xp {
+                color: #d2d2d6;
             }
-        }
 
-        .component-player-level-badge {
-            width: 58px;
-            height: 66px;
-
-            color: #fff;
-            background:
-                linear-gradient(145deg, #c82f40, #51080f);
-            border: 2px solid #e34b59;
-            border-radius: 16px 16px 22px 22px;
-            box-shadow:
-                0 8px 18px rgba(200, 47, 64, 0.25),
-                inset 0 0 12px rgba(0, 0, 0, 0.45);
-
-            span {
-                font-size: 24px;
-                font-weight: 800;
+            .component-player-level-remaining {
+                color: #777980;
             }
-        }
-
-        .component-player-rank-icon {
-            color: #c9a35f;
-            font-size: 28px;
-            line-height: 1;
-            filter: drop-shadow(0 0 8px rgba(201, 163, 95, 0.25));
-        }
-
-        .component-player-level-progress {
-            height: 7px;
-
-            background: #08090b;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-
-            .progress-bar {
-                background: linear-gradient(90deg, #861001, #e12b3a);
-                border-radius: inherit;
-                box-shadow: 0 0 10px rgba(225, 43, 58, 0.45);
-            }
-        }
-
-        .component-player-level-xp {
-            color: #d2d2d6;
-        }
-
-        .component-player-level-remaining {
-            color: #777980;
         }
     }
 }
