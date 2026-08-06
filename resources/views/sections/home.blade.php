@@ -34,7 +34,13 @@
         @php($user = auth()->user())
         <section class="section-player-level mt-3" style="--rank-color: {{ $user->rank['color'] }}">
             <div class="component-player-level d-flex align-items-center gap-3 p-3">
-                <div class="component-player-level-badge flex-shrink-0 d-flex align-items-center justify-content-center">
+                <div class="component-player-level-badge flex-shrink-0">
+                    <img
+                        src="{{ asset($user->rank['shield']) }}"
+                        alt=""
+                        class="component-player-level-shield"
+                    >
+
                     <span>{{ $user->level }}</span>
                 </div>
 
@@ -50,10 +56,13 @@
                             </div>
                         </div>
 
-                        <i
-                            class="bi {{ $user->rank['icon'] }} component-player-rank-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <img
+                            src="{{ asset($user->rank['icon']) }}"
+                            alt="{{ $user->rank['name'] }}"
+                            width="52"
+                            height="52"
+                            class="component-player-rank-icon object-fit-contain"
+                        >
                     </div>
 
                     <div
