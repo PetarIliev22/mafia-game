@@ -12,7 +12,7 @@
 
 // Global
 html {
-    height: 100dvh;
+    min-height: 100%;
     background: #0a0a0f;
     color-scheme: dark;
 }
@@ -38,5 +38,4 @@ body {
 
 .app {
     min-height: 100dvh;
-    padding-top: env(safe-area-inset-top);
 }

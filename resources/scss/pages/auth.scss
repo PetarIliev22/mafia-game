@@ -1,11 +1,22 @@
 .page-auth {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     max-width: 430px;
     min-height: 100dvh;
     margin: 0 auto;
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
 
     color: #f7f7f8;
     background: #090a0d;
+
+    .section-auth {
+        width: 100%;
+        min-width: 0;
+        margin-block: auto;
+    }
 
     .text-secondary {
         color: #94969d !important;
@@ -18,24 +29,41 @@
             color: #d92731;
         }
     }
-}
 
-.section-auth {
-    min-width: 0;
+    .form-check-input {
+        background: #15161a;
+        border-color: rgba(255, 255, 255, 0.3);
+
+        &:checked {
+            background: #a5121b;
+            border-color: #a5121b;
+        }
+    }
+
+    .form-check-label {
+        color: #b9bbc1;
+    }
+
+    .invalid-feedback {
+        color: #ff6b72;
+    }
+
+    .form-control.is-invalid {
+        border-color: #ff4d57;
+    }
 }
 
 .component-auth-logo {
-    width: 180px;
+    width: 150px;
     object-fit: contain;
 }
 
-// Avatar
 .component-auth-avatar {
     width: 100px;
     height: 100px;
 
     background: #16171b;
-    border: 1px solid rgb(169 0 0 / 88%);
+    border: 1px solid rgba(169, 0, 0, 0.88);
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
@@ -51,6 +79,8 @@
     border: 3px solid #090a0d;
     cursor: pointer;
 
+    transition: background-color 0.2s ease;
+
     i {
         font-size: 14px;
     }
@@ -59,11 +89,18 @@
         background: #c01823;
     }
 }
+
 .component-auth-switch {
+    margin-top: 16px !important;
+
     .nav-link {
+        padding: 0;
+
         color: #fff;
         background: transparent;
         border: 0;
+
+        transition: color 0.2s ease;
 
         &.active {
             display: none;
@@ -75,13 +112,10 @@
         }
     }
 }
-// Fields
-.component-auth-field {
-    min-height: 48px;
 
+.component-auth-field {
     .input-group-text,
-    .form-control,
-    .btn {
+    .form-control {
         min-height: 48px;
 
         color: #f7f7f8;
@@ -107,31 +141,13 @@
 
         &::placeholder {
             color: #85878e;
+            opacity: 1;
         }
-    }
-
-    .btn {
-        width: 44px;
-        padding: 0;
-
-        border-left: 0;
-        border-radius: 0 15px 15px 0;
-
-        &:hover {
-            color: #fff;
-            background: #1d1e23;
-        }
-    }
-
-    &:has(.btn) .form-control {
-        border-right: 0;
-        border-radius: 0;
     }
 
     &:focus-within {
         .input-group-text,
-        .form-control,
-        .btn {
+        .form-control {
             background: #191a1f;
             border-color: rgba(217, 39, 49, 0.7);
         }
@@ -142,7 +158,6 @@
     }
 }
 
-// Submit
 .component-auth-submit {
     min-height: 52px;
 
@@ -153,6 +168,7 @@
 
     transition:
         background-color 0.2s ease,
+        border-color 0.2s ease,
         transform 0.2s ease;
 
     &:hover,
@@ -167,7 +183,6 @@
     }
 }
 
-// Social buttons
 .component-social-button {
     display: grid;
     grid-template-columns: 23px 1fr 23px;
@@ -211,7 +226,6 @@
     }
 }
 
-// Divider
 .component-auth-divider {
     color: #777980;
 
@@ -221,26 +235,68 @@
     }
 }
 
-// Checkbox
-.form-check-input {
-    background-color: #15161a;
-    border-color: rgba(255, 255, 255, 0.3);
+#auth-register {
+    .text-center {
+        margin-bottom: 16px !important;
 
-    &:checked {
-        background-color: #a5121b;
-        border-color: #a5121b;
+        p {
+            margin-bottom: 14px !important;
+        }
+    }
+
+    .component-auth-avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .component-auth-avatar-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .component-auth-field {
+        .input-group-text,
+        .form-control {
+            min-height: 44px;
+        }
+    }
+
+    .component-auth-submit {
+        min-height: 48px;
+        margin-top: 16px !important;
+    }
+
+    .form-check {
+        margin-bottom: 0;
+        font-size: 14px;
     }
 }
 
-.form-check-label {
-    color: #b9bbc1;
-}
+@media (max-height: 700px) {
+    .page-auth {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+    }
 
-// Validation
-.invalid-feedback {
-    color: #ff6b72;
-}
+    #auth-register {
+        .text-center {
+            margin-bottom: 12px !important;
 
-.form-control.is-invalid {
-    border-color: #ff4d57;
+            p {
+                margin-bottom: 10px !important;
+            }
+        }
+
+        .component-auth-avatar {
+            width: 85px;
+            height: 85px;
+        }
+
+        .component-auth-field {
+            .input-group-text,
+            .form-control {
+                min-height: 42px;
+            }
+        }
+    }
 }

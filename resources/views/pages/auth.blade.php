@@ -7,7 +7,7 @@
         $registerActive = $errors->register->any();
     @endphp
 
-    <div class="page-auth px-4 py-5">
+    <div class="page-auth px-4">
         <section class="section-auth w-100">
             <div class="tab-content">
                 <div

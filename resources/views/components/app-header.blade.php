@@ -14,7 +14,7 @@
     >
         @if ($avatar)
             <img
-                src="{{ Storage::disk('public')->url($avatar) }}"
+                src="{{ asset('storage/' . $avatar) }}"
                 alt="Профил"
                 class="w-100 h-100 object-fit-cover"
             >
