@@ -6,7 +6,8 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\View\View;
 
 class AuthController extends Controller
@@ -18,42 +19,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(Request $request): RedirectResponse
+    public function register(RegisterRequest $request): RedirectResponse
     {
-        $data = $request->validateWithBag('register', [
-            'name' => ['required', 'string', 'max:100'],
-            'username' => [
-                'required',
-                'string',
-                'alpha_dash',
-                'max:50',
-                'unique:users,username',
-            ],
-            'email' => [
-                'required',
-                'email',
-                'max:255',
-                'unique:users,email',
-            ],
-            'password' => [
-                'required',
-                'confirmed',
-                Password::min(8),
-            ],
-            'avatar' => [
-                'nullable',
-                'image',
-                'mimes:jpg,jpeg,png,webp',
-                'max:2048',
-            ],
-            'terms' => ['accepted'],
-        ]);
+        $data = $request->validated();
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request
                 ->file('avatar')
-                ->store('avatars');
-                // ->store('avatars', 'public');
+                ->store('avatars', 'public');
         }
 
         unset($data['terms']);
@@ -66,12 +39,9 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->validateWithBag('login', [
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        $credentials = $request->validated();
 
         if (!Auth::attempt($credentials)) {
             return back()
