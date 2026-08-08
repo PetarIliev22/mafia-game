@@ -36,6 +36,12 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
+        if ($request->expectsJson()) {
+            return response()->json([
+                'redirect' => route('home'),
+            ]);
+        }
+
         return redirect()->route('home');
     }
 

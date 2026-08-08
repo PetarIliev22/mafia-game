@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
 {
+    protected $errorBag = 'login';
+
     public function authorize(): bool
     {
         return true;

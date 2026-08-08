@@ -7,6 +7,8 @@ use Illuminate\Validation\Rules\Password;
 
 class RegisterRequest extends FormRequest
 {
+    protected $errorBag = 'register';
+
     public function authorize(): bool
     {
         return true;
