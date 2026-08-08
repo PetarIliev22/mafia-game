@@ -26,7 +26,7 @@ class AuthController extends Controller
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request
                 ->file('avatar')
-                ->store('avatars', 'public');
+                ->store('users', 's3');
         }
 
         unset($data['terms']);
