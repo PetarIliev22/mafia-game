@@ -12,7 +12,7 @@
             </div>
 
             <div class="component-auth-loading-title">
-                Събираме семейството...
+                Зареждане...
             </div>
         </div>
 
