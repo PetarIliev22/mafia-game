@@ -20,7 +20,7 @@
     @endphp
 
     <x-app-header
-        :avatar="auth()->user()->avatar"
+        :avatar-url="auth()->user()->avatar_url"
         :profile-url="route('home', ['tab' => 'profile'])"
     />
 

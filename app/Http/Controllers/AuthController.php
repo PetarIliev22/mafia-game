@@ -19,14 +19,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(RegisterRequest $request): RedirectResponse
+    public function register(RegisterRequest $request): RedirectResponse|\Illuminate\Http\JsonResponse
     {
         $data = $request->validated();
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request
                 ->file('avatar')
-                ->store('users', 's3');
+                ->store('users');
         }
 
         unset($data['terms']);
