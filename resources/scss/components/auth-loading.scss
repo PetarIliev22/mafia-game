@@ -1,0 +1,108 @@
+.component-auth-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #060608 0%, #07070a 58%, #050506 100%);
+
+    .component-auth-loading-scene {
+        position: relative;
+        width: min(100%, 430px);
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 28px 48px;
+        text-align: center;
+    }
+
+    .component-auth-loading-logo {
+        width: 210px;
+        max-width: 70vw;
+        object-fit: contain;
+        filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.7));
+        animation: auth-loading-logo 0.8s ease both;
+    }
+
+    .component-auth-loading-content {
+        margin-top: 28px;
+        animation: auth-loading-content 0.9s ease both;
+    }
+
+    .component-auth-loading-kicker {
+        margin-bottom: 9px;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+    }
+
+    .component-auth-loading-title {
+        color: #f4f4f5;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .component-auth-loading-progress {
+        width: 190px;
+        height: 3px;
+        margin-top: 26px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+
+        .component-auth-loading-progress-bar {
+            display: block;
+            width: 38%;
+            height: 100%;
+            background: linear-gradient(90deg, #5f0904, #a9160d, #d22b20);
+            border-radius: inherit;
+            animation: auth-loading-progress 1.25s ease-in-out infinite;
+        }
+    }
+
+    .component-auth-loading-tip {
+        position: absolute;
+        bottom: calc(34px + env(safe-area-inset-bottom));
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 11px;
+    }
+}
+
+@keyframes auth-loading-logo {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes auth-loading-content {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes auth-loading-progress {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    100% {
+        transform: translateX(320%);
+    }
+}

@@ -2,6 +2,7 @@
     method="POST"
     action="{{ route('register.store') }}"
     enctype="multipart/form-data"
+    class="component-register-form"
 >
     @csrf
 

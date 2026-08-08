@@ -13,6 +13,7 @@
 <form
     method="POST"
     action="{{ route('login.store') }}"
+    class="component-register-form"
 >
     @csrf
 

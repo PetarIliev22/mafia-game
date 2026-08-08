@@ -8,6 +8,7 @@
     @endphp
 
     <div class="page-auth px-4">
+        <x-auth-loading />
         <section class="section-auth w-100">
             <div class="tab-content">
                 <div
