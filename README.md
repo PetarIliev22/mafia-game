@@ -22,7 +22,7 @@
 
 ---
 
-## 🎭 За играта
+## - За играта
 
 **Mafia** е мобилна игра за социална дедукция, блъфиране и оцеляване. Играчите
 получават скрити роли, създават съюзи и се опитват да разкрият мафията, преди да е станало
@@ -35,7 +35,7 @@
 - тъмни glass компоненти и crimson акценти;
 - нива, XP, рангове, мисии и постижения.
 
-## ✨ Функционалности
+## - Функционалности
 
 ### Налични
 
@@ -57,7 +57,7 @@
 - чат на живо и игрови известия;
 - XP, нива, рангове, дневни мисии и постижения.
 
-## 🏆 Рангове и прогрес
+## - Рангове и прогрес
 
 XP системата изчислява нивото на играча и отключва шес визуални ранга.
 
@@ -72,7 +72,7 @@ XP системата изчислява нивото на играча и от�
 
 > Базата данни пази общото XP. Нивото, прогресът и рангът се определят от игровата логика.
 
-## 🎨 Визуална идентичност
+## - Визуална идентичност
 
 <table>
   <tr>
@@ -99,7 +99,7 @@ XP системата изчислява нивото на играча и от�
 | Level shields | `public/img/icons/level-shields/` | Рамка за динамичния номер на нивото |
 | Bootstrap Icons | `bootstrap-icons` | Навигация и интерфейсни действия |
 
-## 🧩 Технологии
+## - Технологии
 
 | Layer | Technology |
 |---|---|
@@ -112,7 +112,7 @@ XP системата изчислява нивото на играча и от�
 | Assets | Vite 8, Sass |
 | Tests | PHPUnit 12 |
 
-## 🗂️ Структура
+## - Структура
 
 ```text
 app/
@@ -137,7 +137,7 @@ public/img/
 └── game_logo.png         # Main game logo
 ```
 
-## 🚀 Локална инсталация
+## - Локална инсталация
 
 ### Изисквания
 
@@ -175,7 +175,7 @@ composer run dev
 
 Проектът ще бъде достъпен на адреса, показан от Laravel development server.
 
-## 🧪 Тестове
+## - Тестове
 
 ```bash
 composer test
@@ -193,32 +193,14 @@ composer test
 ./vendor/bin/pint
 ```
 
-## 🗺️ Roadmap
-
-- [x] Mobile-first Mafia interface
-- [x] Login and registration
-- [x] Profile avatar upload and preview
-- [x] Protected authenticated area
-- [x] Fast tab navigation
-- [ ] Player XP and rank progression
-- [ ] Game creation and join codes
-- [ ] Lobby and ready state
-- [ ] Automatic role assignment
-- [ ] Day/night game engine
-- [ ] Voting and elimination system
-- [ ] Real-time chat and notifications
-- [ ] Achievements, missions and leaderboards
-- [ ] Social authentication with Google and Apple
-- [ ] Automated feature tests and CI
-
-## 🤝 Contributing
+## - Contributing
 
 1. Fork the repository.
 2. Create a feature branch: `git checkout -b feature/feature-name`.
 3. Commit the changes using a clear message.
 4. Push the branch and open a pull request.
 
-## 📜 License
+## - License
 
 The project currently uses the MIT license declared in `composer.json`.
 
