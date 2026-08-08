@@ -12,9 +12,9 @@
         class="component-profile-avatar d-flex align-items-center justify-content-center rounded-circle overflow-hidden"
         aria-label="Профил"
     >
-        @if ($avatar)
+        @if (auth()->user()->avatar_url)
             <img
-                src="{{ Storage::disk('s3')->url($avatar) }}"
+                src="{{ auth()->user()->avatar_url }}"
                 alt="Профил"
                 class="w-100 h-100 object-fit-cover"
             >

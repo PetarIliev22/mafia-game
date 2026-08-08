@@ -63,4 +63,15 @@ class User extends Authenticatable
     {
         return PlayerProgress::rank($this->level);
     }
+
+    public function getAvatarUrlAttribute(): ?string
+    {
+        if (!$this->avatar) {
+            return null;
+        }
+
+        return rtrim(config('services.supabase.url'), '/')
+            . '/storage/v1/object/public/avatars/'
+            . ltrim($this->avatar, '/');
+    }
 }
