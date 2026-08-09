@@ -19,7 +19,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(RegisterRequest $request): RedirectResponse|\Illuminate\Http\JsonResponse
+    public function register(RegisterRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
@@ -35,12 +35,6 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()->regenerate();
-
-        if ($request->expectsJson()) {
-            return response()->json([
-                'redirect' => route('home'),
-            ]);
-        }
 
         return redirect()->route('home');
     }
