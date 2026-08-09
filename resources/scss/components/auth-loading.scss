@@ -22,10 +22,10 @@
 
     .component-auth-loading-logo {
         width: 210px;
-        max-width: 70vw;
+        height: 210px;
         object-fit: contain;
-        filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.7));
-        animation: auth-loading-logo 0.8s ease both;
+        background: transparent;
+        animation: auth-loading-logo 0.9s ease both;
     }
 
     .component-auth-loading-content {

@@ -4,6 +4,9 @@
             src="{{ asset('img/game_logo.webp') }}"
             alt="Mafia"
             class="component-auth-loading-logo"
+            width="210"
+            height="210"
+            decoding="sync"
         >
 
         <div class="component-auth-loading-content">

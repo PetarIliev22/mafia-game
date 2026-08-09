@@ -26,8 +26,10 @@ jQuery(function ($) {
         });
     });
 
-    $('.component-auth-form').on('submit', function () {
+    $('.component-auth-form').on('submit', function (event) {
         if (!this.checkValidity()) {
+            event.preventDefault();
+            this.reportValidity();
             return;
         }
 
