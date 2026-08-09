@@ -1,20 +1,17 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/db-url-test', function () {
-    $url = config('database.connections.pgsql.url');
+Route::get('/speed-db', function () {
+    $start = microtime(true);
 
-    $parts = parse_url($url);
+    DB::select('select 1');
 
     return response()->json([
-        'host' => $parts['host'] ?? null,
-        'port' => $parts['port'] ?? null,
-        'database' => isset($parts['path'])
-            ? ltrim($parts['path'], '/')
-            : null,
+        'db' => round((microtime(true) - $start) * 1000, 2) . ' ms',
     ]);
 });
 
