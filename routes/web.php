@@ -7,6 +7,10 @@ Route::get('/speed-test', function () {
     return 'OK';
 });
 
+Route::middleware('auth')->get('/speed-auth', function () {
+    return 'OK AUTH';
+});
+
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
     Route::get('/login', 'show')->name('login');
 
