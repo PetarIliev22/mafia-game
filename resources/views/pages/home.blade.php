@@ -26,7 +26,7 @@
         :name="$user->name"
         :rank="$user->rank['name']"
         :coins="$user->coins ?? 0"
-        :profile-url="route('home', ['tab' => 'profile'])"
+        :profile-url="route('profile')"
         :show-back="$activeTab !== 'home'"
         :back-url="route('home')"
         notifications-url="#"
