@@ -15,7 +15,7 @@
         @if ($showBack)
             <a
                 href="{{ $backUrl }}"
-                class="component-header-back btn d-flex align-items-center justify-content-center rounded-circle"
+                class="component-header-back btn d-flex align-items-center justify-content-center"
                 aria-label="Назад"
             >
                 <i class="bi bi-chevron-left" aria-hidden="true"></i>
