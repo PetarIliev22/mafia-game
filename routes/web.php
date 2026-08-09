@@ -3,6 +3,18 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/db-config-test', function () {
+    return response()->json([
+        'connection' => config('database.default'),
+        'host' => config('database.connections.pgsql.host'),
+        'port' => config('database.connections.pgsql.port'),
+        'database' => config('database.connections.pgsql.database'),
+        'url_set' => ! empty(config('database.connections.pgsql.url')),
+    ]);
+});
+
+
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
     Route::get('/login', 'show')->name('login');
 
@@ -15,11 +27,13 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
         ->name('register.store');
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('pages.home');
     })->name('home');
 });
+
 
 Route::get('/', function () {
     return redirect()->route(
