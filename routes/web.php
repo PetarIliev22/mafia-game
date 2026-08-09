@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Middleware\RequestTiming;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
@@ -15,7 +16,7 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
         ->name('register.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', RequestTiming::class])->group(function () {
     Route::get('/home', function () {
         return view('pages.home');
     })->name('home');
