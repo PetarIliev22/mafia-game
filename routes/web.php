@@ -4,13 +4,17 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/db-config-test', function () {
+Route::get('/db-url-test', function () {
+    $url = config('database.connections.pgsql.url');
+
+    $parts = parse_url($url);
+
     return response()->json([
-        'connection' => config('database.default'),
-        'host' => config('database.connections.pgsql.host'),
-        'port' => config('database.connections.pgsql.port'),
-        'database' => config('database.connections.pgsql.database'),
-        'url_set' => ! empty(config('database.connections.pgsql.url')),
+        'host' => $parts['host'] ?? null,
+        'port' => $parts['port'] ?? null,
+        'database' => isset($parts['path'])
+            ? ltrim($parts['path'], '/')
+            : null,
     ]);
 });
 
