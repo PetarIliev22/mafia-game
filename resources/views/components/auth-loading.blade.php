@@ -1,4 +1,4 @@
-<div id="auth-loading" class="component-auth-loading d-none">
+<div class="component-auth-loading d-none" id="auth-loading">
     <div class="component-auth-loading-scene">
         <img
             src="{{ asset('img/game_logo.webp') }}"

@@ -135,22 +135,35 @@
         </div>
 
         <div>
-            <div class="component-auth-field input-group">
-                <span class="input-group-text">
-                    <i class="bi bi-lock" aria-hidden="true"></i>
-                </span>
+           <div class="component-password-group">
+                <div class="component-auth-field input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-lock" aria-hidden="true"></i>
+                    </span>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Парола"
-                    autocomplete="new-password"
-                    @class([
-                        'form-control',
-                        'is-invalid' => $errors->register->has('password'),
-                    ])
-                    required
-                >
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Парола"
+                        autocomplete="new-password"
+                        class="form-control component-password-input"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="component-password-toggle btn"
+                        aria-label="Покажи паролата"
+                    >
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
+
+                <div class="component-password-strength mt-2 d-none">
+                    <div class="component-password-strength-bar"></div>
+                </div>
+
+                <small class="component-password-strength-text d-none"></small>
             </div>
 
             @error('password', 'register')
@@ -173,6 +186,14 @@
                 autocomplete="new-password"
                 required
             >
+
+            <button
+                type="button"
+                class="component-password-toggle btn"
+                aria-label="Покажи паролата"
+            >
+                <i class="bi bi-eye"></i>
+            </button>
         </div>
 
         <div>
