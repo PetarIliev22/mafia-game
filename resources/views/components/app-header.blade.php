@@ -1,15 +1,3 @@
-@props([
-    'avatar' => null,
-    'name' => 'Играч',
-    'rank' => 'Новобранец',
-    'coins' => 0,
-    'profileUrl' => '#',
-    'notificationsUrl' => '#',
-    'hasNotifications' => false,
-    'showBack' => false,
-    'backUrl' => '#',
-])
-
 <header class="section-app-header d-flex align-items-center justify-content-between gap-3 mt-2 px-4">
     <div class="d-flex align-items-center">
         @if ($showBack)

@@ -19,10 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('pages.home');
     })->name('home');
-
-    Route::get('/profile', function () {
-        return view('sections.profile');
-    })->name('profile');
 });
 
 Route::get('/', function () {
