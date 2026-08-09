@@ -2,6 +2,19 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+
+Route::get('/speed-db', function () {
+    $start = microtime(true);
+
+    DB::select('select 1');
+
+    return response()->json([
+        'db' => round((microtime(true) - $start) * 1000, 2) . ' ms',
+    ]);
+});
+
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
     Route::get('/login', 'show')->name('login');
@@ -15,11 +28,13 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
         ->name('register.store');
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('pages.home');
     })->name('home');
 });
+
 
 Route::get('/', function () {
     return redirect()->route(
