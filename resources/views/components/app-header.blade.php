@@ -29,7 +29,7 @@
                 <span class="component-profile-avatar flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle overflow-hidden">
                     @if ($avatar)
                         <img
-                            src="{{ Storage::url($avatar) }}"
+                            src="{{ $avatar }}"
                             alt="{{ $name }}"
                             class="w-100 h-100 object-fit-cover"
                         >

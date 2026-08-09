@@ -22,7 +22,7 @@
     @endphp
 
     <x-app-header
-        :avatar="$user->avatar"
+        :avatar="$user->avatar_url"
         :name="$user->name"
         :rank="$user->rank['name']"
         :coins="$user->coins ?? 0"

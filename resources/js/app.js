@@ -33,8 +33,19 @@ jQuery(function ($) {
             return;
         }
 
+        event.preventDefault();
+
+        const form = this;
+        const $form = $(form);
+
         $('.component-auth-loading').removeClass('d-none');
-        $(this).find('[type="submit"]').prop('disabled', true);
+        $form.find('[type="submit"]').prop('disabled', true);
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                form.submit();
+            });
+        });
     });
 
     $('.component-password-toggle').on('click', function () {
