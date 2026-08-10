@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Support\UserProfileSession;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,8 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
+        UserProfileSession::sync($request, $user);
+
         return redirect()->route('home');
     }
 
@@ -52,6 +55,8 @@ class AuthController extends Controller
         }
 
         $request->session()->regenerate();
+
+        UserProfileSession::sync($request, Auth::user());
 
         return redirect()->intended(route('home'));
     }

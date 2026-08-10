@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Support\UserProfileSession;
+use Illuminate\Http\Request;
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
     Route::get('/login', 'show')->name('login');
@@ -16,8 +18,14 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return view('pages.home');
+    Route::get('/home', function (Request $request) {
+        $user = $request->user();
+
+        $profile = UserProfileSession::get($request, $user);
+
+        return view('pages.home', [
+            'profile' => $profile,
+        ]);
     })->name('home');
 });
 
