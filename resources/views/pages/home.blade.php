@@ -5,6 +5,8 @@
 
 @section('content')
     @php
+        $user = auth()->user();
+
         $tabs = [
             'home' => 'sections.home',
             'games' => 'sections.games',
@@ -20,10 +22,10 @@
     @endphp
 
     <x-app-header
-        :avatar="$profile['avatar_url']"
-        :name="$profile['name']"
-        :rank="$profile['rank']['name']"
-        :coins="$profile['coins']"
+        :avatar="$user->avatar_url"
+        :name="$user->name"
+        :rank="$user->rank['name']"
+        :coins="$user->coins ?? 0"
         :profile-url="route('home', ['tab' => 'profile'])"
         :show-back="$activeTab !== 'home'"
         :back-url="route('home')"
