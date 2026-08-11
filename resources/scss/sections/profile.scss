@@ -17,29 +17,31 @@
     }
 
     .component-profile-page-avatar {
-        width: 150px;
-        height: 150px;
+    position: relative;
 
-        color: #fff;
-        background: #15161a;
-        border: 4px solid #a5121b;
-        border-radius: 50%;
-        box-shadow:
-            0 0 0 5px rgba(255, 255, 255, 0.08),
-            0 14px 34px rgba(0, 0, 0, 0.45),
-            0 0 28px rgba(181, 18, 33, 0.3);
+    width: 110px;
+    height: 110px;
 
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        i {
-            font-size: 58px;
-        }
+    .component-profile-page-frame {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        width: 135px;
+        height: 135px;
+
+        transform: translate(-50%, -50%);
+
+        object-fit: contain;
+        pointer-events: none;
+        z-index: 2;
     }
+}
 
     .component-profile-camera {
         right: 2px;

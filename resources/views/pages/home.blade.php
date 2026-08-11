@@ -116,6 +116,59 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="section-my-games mt-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h2 class="h5 fw-bold mb-0">
+                            Моите игри
+                        </h2>
+
+                        <a
+                            href="#"
+                            class="small text-secondary text-decoration-none"
+                        >
+                            Виж всички
+                        </a>
+                    </div>
+
+                    <div class="d-grid gap-3">
+                        <article class="component-game-card p-3">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div class="overflow-hidden">
+                                    <div class="fw-semibold text-white text-truncate">
+                                        Mafia Night
+                                    </div>
+
+                                    <div class="small text-secondary mt-1">
+                                        8 играчи
+                                    </div>
+                                </div>
+
+                                <span class="badge rounded-pill text-bg-success">
+                                    Активна
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="component-game-card p-3">
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <div class="overflow-hidden">
+                                    <div class="fw-semibold text-white text-truncate">
+                                        Classic Mafia
+                                    </div>
+
+                                    <div class="small text-secondary mt-1">
+                                        10 играчи
+                                    </div>
+                                </div>
+
+                                <span class="badge rounded-pill text-bg-secondary">
+                                    Завършена
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
             </section>
         </section>
     </main>

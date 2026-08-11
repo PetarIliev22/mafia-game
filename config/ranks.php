@@ -6,6 +6,7 @@ return [
         'name' => 'Дон',
         'icon' => 'img/icons/levels/don.svg',
         'shield' => 'img/icons/level-shields/don-shield.png',
+        'frame' => 'img/icons/frames/don-frame.svg',
         'color' => '#9b59ff',
     ],
     [
@@ -13,6 +14,7 @@ return [
         'name' => 'Подземен бос',
         'icon' => 'img/icons/levels/underboss.svg',
         'shield' => 'img/icons/level-shields/underboss-shield.png',
+        'frame' => 'img/icons/frames/underboss-frame.svg',
         'color' => '#d4af37',
     ],
     [
@@ -20,6 +22,7 @@ return [
         'name' => 'Капо',
         'icon' => 'img/icons/levels/capo.svg',
         'shield' => 'img/icons/level-shields/capo-shield.png',
+        'frame' => 'img/icons/frames/capo-frame.svg',
         'color' => '#d92731',
     ],
     [
@@ -27,6 +30,7 @@ return [
         'name' => 'Гангстер',
         'icon' => 'img/icons/levels/gangster.svg',
         'shield' => 'img/icons/level-shields/gangster-shield.png',
+        'frame' => 'img/icons/frames/gangster-frame.svg',
         'color' => '#dc6b2f',
     ],
     [
@@ -34,6 +38,7 @@ return [
         'name' => 'Съучастник',
         'icon' => 'img/icons/levels/associate.svg',
         'shield' => 'img/icons/level-shields/associate-shield.png',
+        'frame' => 'img/icons/frames/associate-frame.svg',
         'color' => '#4f8edc',
     ],
     [
@@ -41,6 +46,7 @@ return [
         'name' => 'Новобранец',
         'icon' => 'img/icons/levels/rookie.svg',
         'shield' => 'img/icons/level-shields/rookie-shield.png',
+        'frame' => 'img/icons/frames/rookie-frame.svg',
         'color' => '#8e8e93',
     ],
 ];

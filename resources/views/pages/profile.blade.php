@@ -20,18 +20,31 @@
         <section class="section-profile pb-4">
             <div class="component-profile-hero text-center mb-4">
                 <div class="component-profile-avatar-wrapper position-relative d-inline-block">
-                    <div class="component-profile-page-avatar rounded-circle overflow-hidden">
-                        @if ($profile['avatar_url'])
+                    <div class="component-profile-page-avatar position-relative">
+
+                        <div class="component-profile-page-image w-100 h-100 rounded-circle overflow-hidden">
+                            @if ($profile['avatar_url'])
+                                <img
+                                    src="{{ $profile['avatar_url'] }}"
+                                    alt="{{ $profile['name'] }}"
+                                    class="w-100 h-100 object-fit-cover"
+                                >
+                            @else
+                                <span class="w-100 h-100 d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-person-fill" aria-hidden="true"></i>
+                                </span>
+                            @endif
+                        </div>
+
+                        @if ($profile['rank']['frame'] ?? null)
                             <img
-                                src="{{ $profile['avatar_url'] }}"
-                                alt="{{ $profile['name'] }}"
-                                class="w-100 h-100 object-fit-cover"
+                                src="{{ asset($profile['rank']['frame']) }}"
+                                alt=""
+                                class="component-profile-page-frame"
+                                aria-hidden="true"
                             >
-                        @else
-                            <span class="w-100 h-100 d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person-fill" aria-hidden="true"></i>
-                            </span>
                         @endif
+
                     </div>
                 </div>
 
