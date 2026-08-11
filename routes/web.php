@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
             'profile' => session('profile'),
         ]);
     })->name('profile');
+
+    Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
 });
 
 Route::get('/', function () {

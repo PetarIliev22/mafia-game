@@ -95,13 +95,17 @@
                 </a>
             </div>
 
-            <button
-                type="button"
-                class="component-profile-logout btn w-100 d-flex align-items-center justify-content-center gap-2"
-            >
-                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
-                <span>Изход</span>
-            </button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <button
+                    type="submit"
+                    class="component-profile-logout btn w-100 d-flex align-items-center justify-content-center gap-2"
+                >
+                    <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                    <span>Изход</span>
+                </button>
+            </form>
         </section>
     </main>
 @endsection
