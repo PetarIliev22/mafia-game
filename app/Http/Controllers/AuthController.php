@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Support\UserProfileSession;
 use Illuminate\View\View;
 
 class AuthController extends Controller
@@ -36,6 +37,8 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
+        UserProfileSession::sync($request, $user);
+
         return redirect()->route('home');
     }
 
@@ -52,6 +55,8 @@ class AuthController extends Controller
         }
 
         $request->session()->regenerate();
+
+        UserProfileSession::sync($request, Auth::user());
 
         return redirect()->intended(route('home'));
     }
