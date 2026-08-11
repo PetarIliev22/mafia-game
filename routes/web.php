@@ -17,8 +17,16 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
-        return view('pages.home');
+        return view('pages.home', [
+            'profile' => session('profile'),
+        ]);
     })->name('home');
+
+    Route::get('/profile', function () {
+        return view('pages.profile', [
+            'profile' => session('profile'),
+        ]);
+    })->name('profile');
 });
 
 Route::get('/', function () {
