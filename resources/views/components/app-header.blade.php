@@ -1,3 +1,15 @@
+@props([
+    'avatar' => null,
+    'name' => '',
+    'rank' => '',
+    'coins' => 0,
+    'profileUrl' => '#',
+    'showBack' => false,
+    'backUrl' => '#',
+    'notificationsUrl' => '#',
+    'hasNotifications' => false,
+])
+
 <header class="section-app-header d-flex align-items-center justify-content-between gap-3 mt-2 px-4">
     <div class="d-flex align-items-center">
         @if ($showBack)
@@ -14,16 +26,19 @@
                 class="component-header-player d-flex align-items-center gap-2 text-decoration-none"
                 aria-label="Профил"
             >
-                <span class="component-profile-avatar flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle overflow-hidden">
-                    @if ($avatar)
-                        <img
-                            src="{{ $avatar }}"
-                            alt="{{ $name }}"
-                            class="w-100 h-100 object-fit-cover"
-                        >
-                    @else
-                        <i class="bi bi-person-fill" aria-hidden="true"></i>
-                    @endif
+                <span class="component-profile-avatar position-relative flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle">
+
+                    <span class="w-100 h-100 rounded-circle overflow-hidden d-flex align-items-center justify-content-center">
+                        @if ($avatar)
+                            <img
+                                src="{{ $avatar }}"
+                                alt="{{ $name }}"
+                                class="w-100 h-100 object-fit-cover"
+                            >
+                        @else
+                            <i class="bi bi-person-fill" aria-hidden="true"></i>
+                        @endif
+                    </span>
                 </span>
 
                 <span class="overflow-hidden">
