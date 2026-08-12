@@ -134,24 +134,6 @@
                             <div class="d-flex align-items-center justify-content-between gap-3">
                                 <div class="overflow-hidden">
                                     <div class="fw-semibold text-white text-truncate">
-                                        Mafia Night
-                                    </div>
-
-                                    <div class="small text-secondary mt-1">
-                                        8 играчи
-                                    </div>
-                                </div>
-
-                                <span class="badge rounded-pill text-bg-success">
-                                    Активна
-                                </span>
-                            </div>
-                        </article>
-
-                        <article class="component-game-card p-3">
-                            <div class="d-flex align-items-center justify-content-between gap-3">
-                                <div class="overflow-hidden">
-                                    <div class="fw-semibold text-white text-truncate">
                                         Classic Mafia
                                     </div>
 
