@@ -16,6 +16,31 @@ jQuery(function ($) {
 
     if ($lobby.length) {
         const gameId = $lobby.data('game-id');
+        const playersUrl = $lobby.data('players-url');
+
+        async function refreshLobbyPlayers() {
+            try {
+                const response = await fetch(playersUrl, {
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Неуспешно зареждане на играчите.');
+                }
+
+                const data = await response.json();
+
+                $('.component-lobby-players').replaceWith(data.html);
+
+                $('.component-lobby-player-count').text(
+                    `${data.players_count} / ${data.max_players}`
+                );
+            } catch (error) {
+                console.error('Lobby refresh error:', error);
+            }
+        }
 
         supabase
             .channel(`game-${gameId}`)
@@ -27,11 +52,13 @@ jQuery(function ($) {
                     table: 'game_players',
                     filter: `game_id=eq.${gameId}`,
                 },
-                (payload) => {
-                    console.log('Lobby changed:', payload);
+                () => {
+                    refreshLobbyPlayers();
                 }
             )
-            .subscribe();
+            .subscribe((status) => {
+                console.log('Realtime status:', status);
+            });
     }
 
     function openPage(target) {

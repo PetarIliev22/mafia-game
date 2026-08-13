@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\LobbyController;
 use App\Models\Game;
 
 use Illuminate\Support\Facades\Route;
@@ -43,12 +44,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/games/join', [GameController::class, 'join'])
         ->name('games.join');
 
-    Route::get('/games/{game}/lobby', function (\App\Models\Game $game) {
-        return view('pages.lobby', [
-            'game' => $game->load('players.user'),
-            'profile' => session('profile'),
-        ]);
-    })->name('games.lobby');
+    Route::controller(LobbyController::class)->group(function () {
+        Route::get('/games/{game}/lobby', 'show')
+            ->name('games.lobby');
+
+        Route::get('/games/{game}/players', 'players')
+            ->name('games.players');
+    });
 
     Route::delete('/games/{game}', [GameController::class, 'destroy'])
     ->name('games.destroy');

@@ -17,7 +17,7 @@
     />
 
     <main class="page-home px-4 pt-3">
-        <section class="section-lobby" data-game-id="{{ $game->id }}">
+        <section class="section-lobby" data-game-id="{{ $game->id }}" data-players-url="{{ route('games.players', $game) }}">
             <div class="text-center mb-4">
                 <p class="text-secondary small mb-1">
                     Код на играта
@@ -32,101 +32,61 @@
                 </div>
             </div>
 
-            <div class="d-flex align-items-center justify-content-between mb-3">
+           <div class="d-flex align-items-center justify-content-between mb-3">
                 <h2 class="h5 fw-bold mb-0">
                     Играчи
                 </h2>
 
-                <span class="text-secondary small">
+                <span class="component-lobby-player-count text-secondary small">
                     {{ $game->players->count() }} / {{ $game->max_players }}
                 </span>
             </div>
 
-            <div class="d-grid gap-2">
-                @foreach ($game->players as $player)
-                    <div class="component-lobby-player d-flex align-items-center gap-3 p-3">
-                        <div class="component-lobby-player-avatar rounded-circle overflow-hidden flex-shrink-0">
-                            @if ($player->user->avatar_url)
-                                <img
-                                    src="{{ $player->user->avatar_url }}"
-                                    alt="{{ $player->user->name }}"
-                                    class="w-100 h-100 object-fit-cover"
-                                >
-                            @else
-                                <span class="w-100 h-100 d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-person-fill"></i>
-                                </span>
-                            @endif
-                        </div>
+            @include('partials.lobby-players')
 
-                        <div class="flex-grow-1 overflow-hidden">
-                            <div class="fw-semibold text-truncate">
-                                {{ $player->user->name }}
-                            </div>
+            <div class="section-lobby-actions d-grid gap-2 mt-4">
+                <a
+                    href="{{ route('home') }}"
+                    class="component-lobby-exit btn w-100 d-flex align-items-center justify-content-center gap-2"
+                >
+                    <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
+                    <span>Излез</span>
+                </a>
 
-                            <div class="small text-secondary">
-                                {{ '@' . $player->user->username }}
-                            </div>
-                        </div>
-
-                        @if ($player->user_id === $game->host_id)
-                            <span class="badge rounded-pill">
-                                Host
-                            </span>
-                        @endif
-                    </div>
-                @endforeach
-                <div class="section-lobby-actions d-grid gap-2 mt-4">
-
-                    {{-- Излиза от lobby страницата, но остава в играта --}}
-                    <a
-                        href="{{ route('home') }}"
-                        class="component-lobby-exit btn w-100 d-flex align-items-center justify-content-center gap-2"
+                @if ($game->host_id === auth()->id())
+                    <form
+                        method="POST"
+                        action="{{ route('games.destroy', $game) }}"
                     >
-                        <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
-                        <span>Излез</span>
-                    </a>
+                        @csrf
+                        @method('DELETE')
 
-                    @if ($game->host_id === auth()->id())
-
-                        {{-- Само host може да прекрати цялата игра --}}
-                        <form
-                            method="POST"
-                            action="{{ route('games.destroy', $game) }}"
+                        <button
+                            type="submit"
+                            class="component-lobby-stop btn w-100 d-flex align-items-center justify-content-center gap-2"
                         >
-                            @csrf
-                            @method('DELETE')
+                            <i class="bi bi-x-circle" aria-hidden="true"></i>
+                            <span>Прекрати играта</span>
+                        </button>
+                    </form>
+                @else
+                    <form
+                        method="POST"
+                        action="{{ route('games.leave', $game) }}"
+                    >
+                        @csrf
+                        @method('DELETE')
 
-                            <button
-                                type="submit"
-                                class="component-lobby-stop btn w-100 d-flex align-items-center justify-content-center gap-2"
-                            >
-                                <i class="bi bi-x-circle" aria-hidden="true"></i>
-                                <span>Прекрати играта</span>
-                            </button>
-                        </form>
-
-                    @else
-
-                        {{-- Обикновеният играч напуска играта напълно --}}
-                        <form
-                            method="POST"
-                            action="{{ route('games.leave', $game) }}"
+                        <button
+                            type="submit"
+                            class="component-lobby-leave btn w-100 d-flex align-items-center justify-content-center gap-2"
                         >
-                            @csrf
-                            @method('DELETE')
-
-                            <button
-                                type="submit"
-                                class="component-lobby-leave btn w-100 d-flex align-items-center justify-content-center gap-2"
-                            >
-                                <i class="bi bi-door-open" aria-hidden="true"></i>
-                                <span>Напусни играта</span>
-                            </button>
-                        </form>
-
-                    @endif
-                </div>
+                            <i class="bi bi-door-open" aria-hidden="true"></i>
+                            <span>Напусни играта</span>
+                        </button>
+                    </form>
+                @endif
+            </div>
             </div>
         </section>
     </main>
