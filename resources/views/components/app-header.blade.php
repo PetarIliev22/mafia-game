@@ -3,6 +3,7 @@
     'name' => '',
     'rank' => '',
     'coins' => 0,
+    'rankColor' => '#8e8e93',
     'profileUrl' => '#',
     'notificationsUrl' => '#',
     'hasNotifications' => false,
@@ -26,7 +27,8 @@
             aria-label="Профил"
         >
         
-                <span class="component-profile-avatar position-relative flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle">
+                <span class="component-profile-avatar position-relative flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle"
+                    style="border: 3px solid {{ $rankColor }}">
 
                     <span class="w-100 h-100 rounded-circle overflow-hidden d-flex align-items-center justify-content-center">
                         @if ($avatar)

@@ -9,6 +9,7 @@
         :name="$profile['name']"
         :rank="$profile['rank']['name']"
         :frame="$profile['rank']['frame'] ?? null"
+        :rank-color="$profile['rank']['color']"
         :coins="$profile['coins']"
         profile-url="#"
         notifications-url="#"
