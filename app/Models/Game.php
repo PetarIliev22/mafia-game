@@ -35,4 +35,24 @@ class Game extends Model
 
         return $code;
     }
+
+    public function getStatusLabelAttribute(): string
+    {
+        return match ($this->status) {
+            'waiting' => 'Лоби',
+            'active' => 'В игра',
+            'finished' => 'Завършена',
+            default => 'Неизвестен',
+        };
+    }
+
+    public function getStatusClassAttribute(): string
+    {
+        return match ($this->status) {
+            'waiting' => 'is-waiting',
+            'active' => 'is-active',
+            'finished' => 'is-finished',
+            default => '',
+        };
+    }
 }

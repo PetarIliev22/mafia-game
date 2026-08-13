@@ -200,6 +200,7 @@
 
         .section-my-games {
             .component-game-card {
+                padding: 15px;
                 background: linear-gradient(
                     180deg,
                     rgba(31, 32, 36, 0.96),
@@ -281,6 +282,167 @@
                 i {
                     color: #777981;
                     font-size: 28px;
+                }
+            }
+
+            .component-game-title {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .component-game-code {
+                color: #6f7078;
+
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+            }
+
+            .component-game-divider {
+                height: 1px;
+                margin: 14px 0;
+
+                background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.02)
+                );
+            }
+
+            .component-game-status {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+
+                padding: 6px 10px;
+
+                border-radius: 999px;
+
+                font-size: 11px;
+                font-weight: 600;
+
+                white-space: nowrap;
+
+                span {
+                    width: 6px;
+                    height: 6px;
+
+                    border-radius: 50%;
+
+                    background: currentColor;
+                }
+
+                &.is-waiting {
+                    color: #ffb340;
+
+                    background: rgba(255, 179, 64, 0.1);
+                    border: 1px solid rgba(255, 179, 64, 0.22);
+                }
+
+                &.is-active {
+                    color: #47d16c;
+
+                    background: rgba(71, 209, 108, 0.1);
+                    border: 1px solid rgba(71, 209, 108, 0.22);
+                }
+
+                &.is-finished {
+                    color: #9ca3af;
+
+                    background: rgba(156, 163, 175, 0.1);
+                    border: 1px solid rgba(156, 163, 175, 0.16);
+                }
+            }
+
+            .component-game-avatars {
+                padding-left: 8px;
+            }
+
+            .component-game-avatar {
+                width: 34px;
+                height: 34px;
+
+                margin-left: -8px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                overflow: hidden;
+
+                color: #d1d1d6;
+                background: #24252a;
+
+                border: 2px solid #111216;
+                border-radius: 50%;
+
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: cover;
+                }
+
+                i {
+                    font-size: 14px;
+                }
+            }
+
+            .component-game-avatar-more {
+                color: #b7b7bd;
+
+                background: #2b2c31;
+
+                font-size: 10px;
+                font-weight: 700;
+            }
+
+            .component-game-player-count {
+                color: #f5f5f7;
+
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .component-game-player-label {
+                color: #777981;
+
+                font-size: 10px;
+            }
+
+            .component-game-open {
+                width: 34px;
+                height: 34px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: #8f9097;
+
+                background: rgba(255, 255, 255, 0.04);
+
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 50%;
+
+                transition:
+                    color 0.2s ease,
+                    background-color 0.2s ease,
+                    transform 0.2s ease;
+
+                i {
+                    font-size: 14px;
+                }
+            }
+
+            .component-game-card:hover {
+                .component-game-open {
+                    color: #fff;
+                    background: rgba(255, 255, 255, 0.08);
+
+                    transform: translate(1px, -1px);
                 }
             }
         }

@@ -24,6 +24,9 @@ Route::middleware('auth')->group(function () {
         $games = Game::whereHas('players', function ($query) {
             $query->where('user_id', auth()->id());
         })
+            ->with([
+                'players.user',
+            ])
             ->withCount('players')
             ->latest()
             ->take(3)

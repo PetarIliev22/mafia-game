@@ -105,68 +105,16 @@
                 <h2 class="h5 fw-bold mb-0">
                     Моите игри
                 </h2>
-
-                @if ($games->isNotEmpty())
-                    <a
-                        href="#"
-                        class="small text-secondary text-decoration-none"
-                    >
-                        Виж всички
-                    </a>
-                @endif
             </div>
 
             @if ($games->isEmpty())
                 <div class="component-games-empty text-center p-4">
-                    <i class="bi bi-controller d-block mb-2"></i>
-
-                    <div class="fw-semibold mb-1">
-                        Все още нямаш игри
-                    </div>
-
-                    <div class="small text-secondary">
-                        Създай нова игра или се присъедини с код.
-                    </div>
+                    Все още нямаш игри
                 </div>
             @else
                 <div class="d-grid gap-3">
                     @foreach ($games as $game)
-                        <a
-                            href="{{ route('games.lobby', $game) }}"
-                            class="component-game-card d-block p-3 text-decoration-none"
-                        >
-                            <div class="d-flex align-items-center justify-content-between gap-3">
-                                <div class="overflow-hidden">
-                                    <div class="fw-semibold text-white text-truncate">
-                                        {{ $game->name }}
-                                    </div>
-
-                                    <div class="small text-secondary mt-1">
-                                        {{ $game->players_count }} / {{ $game->max_players }} играчи
-                                    </div>
-                                </div>
-
-                                @switch($game->status)
-                                    @case('waiting')
-                                        <span class="badge rounded-pill component-game-status-waiting">
-                                            Лоби
-                                        </span>
-                                        @break
-
-                                    @case('active')
-                                        <span class="badge rounded-pill component-game-status-active">
-                                            В игра
-                                        </span>
-                                        @break
-
-                                    @case('finished')
-                                        <span class="badge rounded-pill component-game-status-finished">
-                                            Завършена
-                                        </span>
-                                        @break
-                                @endswitch
-                            </div>
-                        </a>
+                        <x-game-card :game="$game" />
                     @endforeach
                 </div>
             @endif
