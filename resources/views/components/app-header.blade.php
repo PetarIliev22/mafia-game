@@ -60,7 +60,7 @@
             aria-label="{{ $coins }} монети"
         >
             <span class="component-player-coin d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-coin" aria-hidden="true"></i>
+                <img src="{{ asset('img/icons/coin.webp') }}" alt="Монети" width="24">
             </span>
 
             <strong>

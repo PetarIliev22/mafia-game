@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Support\PlayerProgress;
+use App\Support\SupabaseStorage;
 
 class User extends Authenticatable
 {
@@ -70,8 +71,9 @@ class User extends Authenticatable
             return null;
         }
 
-        return rtrim(config('services.supabase.url'), '/')
-            . '/storage/v1/object/public/avatars/'
-            . ltrim($this->avatar, '/');
+        return SupabaseStorage::publicUrl(
+            'avatars',
+            $this->avatar
+        );
     }
 }
