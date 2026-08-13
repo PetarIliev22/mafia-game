@@ -24,6 +24,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
+
+    Route::post('/games/join', [GameController::class, 'join'])
+        ->name('games.join');
 });
 
 Route::get('/', function () {

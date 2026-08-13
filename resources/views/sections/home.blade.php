@@ -25,6 +25,8 @@
         <a
             href="#"
             class="component-join-game-button btn d-flex align-items-center justify-content-center gap-2 fw-semibold"
+            data-bs-toggle="modal"
+            data-bs-target="#joinGameModal"
         >
             <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
             <span>Влез в игра</span>

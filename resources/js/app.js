@@ -1,4 +1,5 @@
 import 'bootstrap/js/dist/tab';
+import 'bootstrap/js/dist/modal';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import jQuery from 'jquery';

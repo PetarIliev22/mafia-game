@@ -25,4 +25,5 @@
             @include('sections.profile')
         </div>
     </main>
+    <x-join-game-modal />
 @endsection
