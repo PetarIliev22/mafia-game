@@ -3,6 +3,7 @@ import 'bootstrap/js/dist/modal';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import jQuery from 'jquery';
+import { supabase } from './supabase';
 
 jQuery(function ($) {
     AOS.init({
@@ -10,6 +11,28 @@ jQuery(function ($) {
         easing: 'ease-out',
         once: false,
     });
+
+    const $lobby = $('.section-lobby');
+
+    if ($lobby.length) {
+        const gameId = $lobby.data('game-id');
+
+        supabase
+            .channel(`game-${gameId}`)
+            .on(
+                'postgres_changes',
+                {
+                    event: '*',
+                    schema: 'public',
+                    table: 'game_players',
+                    filter: `game_id=eq.${gameId}`,
+                },
+                (payload) => {
+                    console.log('Lobby changed:', payload);
+                }
+            )
+            .subscribe();
+    }
 
     function openPage(target) {
         const $target = $(target);
@@ -142,5 +165,13 @@ jQuery(function ($) {
         });
 
         $text.text(state.text);
+    });
+
+    $('.component-game-form').on('submit', function () {
+        $('.component-auth-loading').removeClass('d-none');
+
+        $(this)
+            .find('[type="submit"]')
+            .prop('disabled', true);
     });
 });

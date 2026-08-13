@@ -37,7 +37,7 @@
                     </p>
                 </div>
 
-                <form method="POST" action="{{ $action }}">
+                <form method="POST" action="{{ $action }}" class="component-game-form">
                     @csrf
 
                     <div class="mb-3">

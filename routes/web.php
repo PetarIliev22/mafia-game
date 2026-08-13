@@ -41,6 +41,9 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/games/{game}', [GameController::class, 'destroy'])
     ->name('games.destroy');
+
+    Route::delete('/games/{game}/leave', [GameController::class, 'leave'])
+    ->name('games.leave');
 });
 
 Route::get('/', function () {

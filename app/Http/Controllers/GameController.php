@@ -75,4 +75,19 @@ class GameController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function leave(Game $game): RedirectResponse
+    {
+        if ($game->host_id === auth()->id()) {
+            return back()->withErrors([
+                'game' => 'Домакинът не може да напусне играта. Можеш да я прекратиш.',
+            ]);
+        }
+
+        $game->players()
+            ->where('user_id', auth()->id())
+            ->delete();
+
+        return redirect()->route('home');
+    }
 }

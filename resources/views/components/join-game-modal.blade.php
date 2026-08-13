@@ -35,7 +35,7 @@
                     Въведи кода, получен от домакина
                 </p>
 
-                <form method="POST" action="{{ route('games.join') }}">
+                <form method="POST" action="{{ route('games.join') }}" class="component-game-form">
                     @csrf
 
                     <input
