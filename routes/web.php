@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Models\Game;
+
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
@@ -18,8 +20,17 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
+        $games = Game::whereHas('players', function ($query) {
+            $query->where('user_id', auth()->id());
+        })
+            ->withCount('players')
+            ->latest()
+            ->take(3)
+            ->get();
+
         return view('pages.main', [
             'profile' => session('profile'),
+            'games' => $games,
         ]);
     })->name('home');
 
