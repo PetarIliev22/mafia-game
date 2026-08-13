@@ -4,28 +4,28 @@
     'rank' => '',
     'coins' => 0,
     'profileUrl' => '#',
-    'showBack' => false,
-    'backUrl' => '#',
     'notificationsUrl' => '#',
     'hasNotifications' => false,
 ])
 
 <header class="section-app-header d-flex align-items-center justify-content-between gap-3 mt-2 px-4">
     <div class="d-flex align-items-center">
-        @if ($showBack)
-            <a
-                href="{{ $backUrl }}"
-                class="component-header-back btn d-flex align-items-center justify-content-center"
-                aria-label="Назад"
-            >
-                <i class="bi bi-chevron-left" aria-hidden="true"></i>
-            </a>
-        @else
-            <a
-                href="{{ $profileUrl }}"
-                class="component-header-player d-flex align-items-center gap-2 text-decoration-none"
-                aria-label="Профил"
-            >
+        <a
+            href="#home-page"
+            data-page-target="#home-page"
+            class="component-header-back btn d-none align-items-center justify-content-center"
+            aria-label="Назад"
+        >
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </a>
+
+        <a
+            href="#profile-page"
+            data-page-target="#profile-page"
+            class="component-header-player d-flex align-items-center gap-2 text-decoration-none"
+            aria-label="Профил"
+        >
+        
                 <span class="component-profile-avatar position-relative flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle">
 
                     <span class="w-100 h-100 rounded-circle overflow-hidden d-flex align-items-center justify-content-center">
@@ -51,7 +51,6 @@
                     </small>
                 </span>
             </a>
-        @endif
     </div>
 
     {{-- Currency and notifications --}}

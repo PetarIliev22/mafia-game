@@ -1,7 +1,49 @@
-import 'bootstrap/js/dist/tab';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import jQuery from 'jquery';
 
 jQuery(function ($) {
+    AOS.init({
+        duration: 500,
+        easing: 'ease-out',
+        once: false,
+    });
+
+    function openPage(target) {
+        const $target = $(target);
+
+        $('.page-view').addClass('d-none');
+
+        $target
+            .removeClass('d-none')
+            .removeClass('aos-animate');
+
+        // Force browser reflow
+        $target[0]?.offsetHeight;
+
+        requestAnimationFrame(() => {
+            AOS.refreshHard();
+        });
+
+        switch (target) {
+            case '#profile-page':
+                $('.component-header-player').addClass('d-none');
+                $('.component-header-back').removeClass('d-none');
+                break;
+
+            default:
+                $('.component-header-player').removeClass('d-none');
+                $('.component-header-back').addClass('d-none');
+                break;
+        }
+    }
+
+    $('[data-page-target]').on('click', function (event) {
+        event.preventDefault();
+
+        openPage($(this).attr('data-page-target'));
+    });
+
     $('.component-auth-avatar-wrapper').each(function () {
         const $component = $(this);
         const $input = $component.find('.component-auth-avatar-input');
