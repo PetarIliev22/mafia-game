@@ -25,5 +25,6 @@
             @include('sections.profile')
         </div>
     </main>
-    <x-join-game-modal />
+    <x-create-game-modal :action="route('games.store')"/>
+    <x-join-game-modal :action="route('games.join')" />
 @endsection

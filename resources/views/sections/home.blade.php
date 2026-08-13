@@ -17,6 +17,8 @@
         <a
             href="#"
             class="component-new-game-button btn d-flex align-items-center justify-content-center gap-2 fw-semibold"
+            data-bs-toggle="modal"
+            data-bs-target="#createGameModal"
         >
             <i class="bi bi-plus-lg" aria-hidden="true"></i>
             <span>Създай нова игра</span>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
@@ -25,8 +26,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
+    Route::post('/games', [GameController::class, 'store'])
+        ->name('games.store');
+
     Route::post('/games/join', [GameController::class, 'join'])
         ->name('games.join');
+
+    Route::get('/games/{game}/lobby', function (\App\Models\Game $game) {
+        return view('pages.lobby', [
+            'game' => $game->load('players.user'),
+            'profile' => session('profile'),
+        ]);
+    })->name('games.lobby');
+
+    Route::delete('/games/{game}', [GameController::class, 'destroy'])
+    ->name('games.destroy');
 });
 
 Route::get('/', function () {

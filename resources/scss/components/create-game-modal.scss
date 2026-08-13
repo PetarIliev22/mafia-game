@@ -1,0 +1,134 @@
+.component-create-game-modal {
+    --bs-modal-width: 380px;
+
+    .modal-content {
+        position: relative;
+
+        color: #f5f5f7;
+
+        background: linear-gradient(
+            145deg,
+            rgba(28, 29, 34, 0.98),
+            rgba(12, 13, 16, 0.99)
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 22px;
+
+        box-shadow:
+            0 24px 70px rgba(0, 0, 0, 0.7),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .component-create-game-close {
+        top: 16px;
+        right: 16px;
+
+        z-index: 5;
+
+        filter: invert(1);
+        opacity: 0.65;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .component-create-game-icon {
+        width: 52px;
+        height: 52px;
+
+        color: #fff;
+        background: rgba(217, 39, 49, 0.14);
+
+        border: 1px solid rgba(217, 39, 49, 0.6);
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            0 0 18px rgba(217, 39, 49, 0.18);
+
+        i {
+            font-size: 22px;
+        }
+    }
+
+    .form-label {
+        color: #9b9ca3;
+    }
+
+    .component-create-game-input {
+        min-height: 52px;
+
+        color: #fff;
+        background: #17181d;
+
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 14px;
+
+        box-shadow: none;
+
+        &::placeholder {
+            color: #62636a;
+        }
+
+        &:focus {
+            color: #fff;
+            background: #17181d;
+
+            border-color: #d92731;
+
+            box-shadow:
+                0 0 0 3px rgba(217, 39, 49, 0.12);
+        }
+    }
+
+    select.component-create-game-input {
+        cursor: pointer;
+
+        option {
+            color: #fff;
+            background: #17181d;
+        }
+    }
+
+    .component-create-game-submit {
+        min-height: 52px;
+
+        color: #fff;
+        background: linear-gradient(
+            180deg,
+            #a61708,
+            #861001
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 8px 20px rgba(134, 16, 1, 0.28);
+
+        transition:
+            transform 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease;
+
+        &:hover {
+            color: #fff;
+
+            background: linear-gradient(
+                180deg,
+                #bd1b0b,
+                #981203
+            );
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                0 10px 24px rgba(134, 16, 1, 0.34);
+        }
+
+        &:active {
+            transform: scale(0.985);
+        }
+    }
+}

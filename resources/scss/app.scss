@@ -6,10 +6,13 @@
 @import "./components/app-header";
 @import "./components/auth-loading";
 @import "./components/join-game-modal";
+@import "./components/create-game-modal.scss";
+
 
 // Pages
 @import "./pages/home";
 @import "./pages/auth";
+@import "./pages/lobby";
 
 // Sections
 @import "./sections/profile";
