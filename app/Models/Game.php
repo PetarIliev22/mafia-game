@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\GameStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,6 +17,13 @@ class Game extends Model
         'max_players',
         'status',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => GameStatus::class,
+        ];
+    }
 
     public function host(): BelongsTo
     {
@@ -39,20 +47,18 @@ class Game extends Model
     public function getStatusLabelAttribute(): string
     {
         return match ($this->status) {
-            'waiting' => 'Лоби',
-            'active' => 'В игра',
-            'finished' => 'Завършена',
-            default => 'Неизвестен',
+            GameStatus::Waiting => 'Лоби',
+            GameStatus::Active => 'В игра',
+            GameStatus::Finished => 'Завършена',
         };
     }
 
     public function getStatusClassAttribute(): string
     {
         return match ($this->status) {
-            'waiting' => 'is-waiting',
-            'active' => 'is-active',
-            'finished' => 'is-finished',
-            default => '',
+            GameStatus::Waiting => 'is-waiting',
+            GameStatus::Active => 'is-active',
+            GameStatus::Finished => 'is-finished',
         };
     }
 }

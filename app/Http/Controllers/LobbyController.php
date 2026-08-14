@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Http\Requests\JoinGameRequest;
+use App\Enums\GameStatus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -40,7 +41,7 @@ class LobbyController extends Controller
         $data = $request->validated();
 
         $game = Game::where('code', strtoupper($data['code']))
-            ->where('status', 'waiting')
+            ->where('status', GameStatus::Waiting)
             ->first();
 
         if (! $game) {

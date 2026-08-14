@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Http\Requests\StoreGameRequest;
+use App\Enums\GameStatus;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class GameController extends Controller
                 'code' => Game::generateCode(),
                 'name' => $data['name'],
                 'max_players' => $data['max_players'],
-                'status' => 'waiting',
+                'status' => GameStatus::Waiting,
             ]);
 
             $game->players()->create([

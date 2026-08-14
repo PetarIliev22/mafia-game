@@ -57,6 +57,22 @@ jQuery(function ($) {
                 }
             )
             .subscribe();
+
+        supabase
+            .channel(`game-state-${gameId}`)
+            .on(
+                'postgres_changes',
+                {
+                    event: 'DELETE',
+                    schema: 'public',
+                    table: 'games',
+                    filter: `id=eq.${gameId}`,
+                },
+                () => {
+                    window.location.href = '/home';
+                }
+            )
+            .subscribe();
     }
 
     function openPage(target) {
