@@ -41,6 +41,8 @@ class GameController extends Controller
 
         $game->delete();
 
-        return redirect()->route('home');
+        return redirect()
+            ->route('home')
+            ->with('success', 'Играта е прекратена.');
     }
 }

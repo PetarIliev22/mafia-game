@@ -4,6 +4,7 @@
 @section('body-class', 'page-home-body')
 
 @section('content')
+    <x-flash-message />
     <x-auth-loading />
     <x-app-header
         :avatar="$profile['avatar_url']"
