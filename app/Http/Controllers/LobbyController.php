@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Http\Requests\JoinGameRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -34,11 +35,9 @@ class LobbyController extends Controller
         ]);
     }
 
-    public function join(Request $request): RedirectResponse
+    public function join(JoinGameRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'code' => ['required', 'string', 'size:6'],
-        ]);
+        $data = $request->validated();
 
         $game = Game::where('code', strtoupper($data['code']))
             ->where('status', 'waiting')

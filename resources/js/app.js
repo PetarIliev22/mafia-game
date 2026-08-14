@@ -56,9 +56,7 @@ jQuery(function ($) {
                     refreshLobbyPlayers();
                 }
             )
-            .subscribe((status) => {
-                console.log('Realtime status:', status);
-            });
+            .subscribe();
     }
 
     function openPage(target) {

@@ -3,18 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Http\Requests\StoreGameRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
-    public function store(Request $request): RedirectResponse
+    public function store(StoreGameRequest $request): RedirectResponse
     {
-        $data = $request->validate([
-            'name' => ['required', 'string', 'max:100'],
-            'max_players' => ['required', 'integer', 'min:6', 'max:15'],
-        ]);
+        $data = $request->validated();
 
         $game = DB::transaction(function () use ($data) {
             $game = Game::create([
@@ -38,9 +36,7 @@ class GameController extends Controller
 
     public function destroy(Game $game): RedirectResponse
     {
-        if ($game->host_id !== auth()->id()) {
-            abort(403);
-        }
+        $this->authorize('delete', $game);
 
         $game->delete();
 
