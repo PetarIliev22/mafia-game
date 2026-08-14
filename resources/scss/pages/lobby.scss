@@ -17,14 +17,43 @@
     .component-lobby-player-avatar {
         width: 46px;
         height: 46px;
-
-        color: #fff;
-        background: #17181d;
-
-        border: 1px solid rgba(255, 255, 255, 0.12);
-
-        i {
-            font-size: 22px;
+    
+        border: 2px solid var(--rank-color);
+    
+        .component-lobby-player-level {
+            position: absolute;
+            right: -8px;
+            bottom: -8px;
+    
+            width: 28px;
+            height: 28px;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            z-index: 2;
+    
+            .component-lobby-player-level-shield {
+                position: absolute;
+    
+                width: 100%;
+                height: 100%;
+    
+                object-fit: contain;
+            }
+    
+            span {
+                position: relative;
+    
+                z-index: 1;
+    
+                color: #fff;
+    
+                font-size: 9px;
+                font-weight: 800;
+                line-height: 1;
+            }
         }
     }
 
